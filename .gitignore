@@ -1,0 +1,65 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Node.js
+node_modules/
+package-lock.json
+yarn.lock
+
+# Backend
+backend/.env
+backend/node_modules/ #redundant but explicit
+backend/package-lock.json
+
+# Frontend
+frontend/node_modules/ #redundant but explicit
+frontend/package-lock.json
+frontend/yarn.lock
+frontend/build/ # If you build your frontend
+frontend/.git/ #check if you want to exclude this or not, in general, you don't want to
+
+# IDE specific files
+.idea/
+.project
+.classpath
+*.iml
+*.ipr
+*.iws
+.vscode/
+nbproject/
+
+# Log files
+*.log
+*.out
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*.bak
+*.asv
+~$*
+
+# Compiled files (if any in backend - mostly JS, but just in case)
+*.pyc
+*.pyo
+*.class
+*.jar
+*.war
+*.exe
+*.dll
+*.so
+*.dylib
+*.pyd
+
+# Test results
+test_results/
+coverage/
+.nyc_output/
+
+# Secret files
+*.key
+*.pem
+*.crt
+*.pfx
