@@ -29,7 +29,7 @@ Neural Nexus follows a streamlined workflow:
 3. **make.com Integration**: Requests are processed through make.com's automated workflow
 4. **Content Classification**: The system analyzes the subject matter and determines appropriate content types
 5. **Timeline Customization**: Content is structured according to the user's specified timeframe
-6. **Content Generation**: Personalized learning materials are created through our AI system
+6. **Content Generation**: Personalized learning materials are created through make.com AI system
 7. **Content Delivery**: Generated materials are returned to the front-end application for user consumption
 
 ## Implementation Phases
@@ -44,13 +44,6 @@ The system is being developed in eight key phases:
 7. **User Profile & Settings**: User management and customization options
 8. **Analytics Dashboard**: Learning patterns and content effectiveness monitoring
 
-## Additional Enhancements
-- **Certification Generator**: Creates verifiable certificates for completed courses
-- **AI Learning Assistant**: Provides real-time help and clarification
-- **Social Learning Features**: Enables peer-to-peer collaboration
-- **Mobile Application**: Optimizes learning for on-the-go access
-- **Offline Mode**: Allows content download for learning without internet connectivity
-- **Custom Domain Integration**: Provides white-label deployment options
 
 ## Development Status
 Neural Nexus is currently in active development. We are working on:
