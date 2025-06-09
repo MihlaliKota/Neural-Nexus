@@ -1,0 +1,801 @@
+/* Neural Nexus - Complete CSS with Full-Width Layout System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* === BASE STYLES === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+  color: #1e293b;
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* === FULL-WIDTH LAYOUT UTILITIES === */
+
+/* Primary full-width utility - breaks out of any container */
+.full-width {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  position: relative;
+}
+
+/* Full-width without viewport overflow issues */
+.full-width-no-overflow {
+  width: 100%;
+  max-width: 100vw;
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+}
+
+/* Container that ignores MUI maxWidth constraints */
+.container-full {
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: none !important;
+}
+
+/* Constrained content within full-width containers */
+.container-constrained {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Responsive full-width system with smart padding */
+.responsive-full {
+  width: 100%;
+  max-width: none;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 600px) {
+  .responsive-full {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 900px) {
+  .responsive-full {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .responsive-full {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .responsive-full {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+
+/* Full-width navigation */
+.nav-full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* Full-width hero sections */
+.hero-full-width {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: 64px 0;
+  position: relative;
+}
+
+/* Prevent horizontal scrollbar globally */
+.no-horizontal-scroll {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Full-width cards with inner content constraints */
+.card-full-width {
+  width: 100%;
+  max-width: none;
+}
+
+.card-full-width .card-content-constrained {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Utility for breaking out of containers */
+.breakout {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* Responsive breakout with safe padding */
+.breakout-safe {
+  width: calc(100vw - 32px);
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: calc(-50vw + 16px);
+  margin-right: calc(-50vw + 16px);
+}
+
+@media (min-width: 600px) {
+  .breakout-safe {
+    width: calc(100vw - 48px);
+    margin-left: calc(-50vw + 24px);
+    margin-right: calc(-50vw + 24px);
+  }
+}
+
+@media (min-width: 900px) {
+  .breakout-safe {
+    width: calc(100vw - 64px);
+    margin-left: calc(-50vw + 32px);
+    margin-right: calc(-50vw + 32px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .breakout-safe {
+    width: calc(100vw - 96px);
+    margin-left: calc(-50vw + 48px);
+    margin-right: calc(-50vw + 48px);
+  }
+}
+
+/* === RESPONSIVE UTILITIES === */
+
+/* Responsive visibility */
+@media (max-width: 599px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 600px) {
+  .hide-on-desktop {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hide-on-tablet-down {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .hide-on-tablet-up {
+    display: none !important;
+  }
+}
+
+/* Responsive typography */
+@media (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .responsive-text-small {
+    font-size: 0.875rem;
+  }
+  
+  .responsive-text-base {
+    font-size: 1rem;
+  }
+  
+  .responsive-text-large {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 601px) {
+  .responsive-text-small {
+    font-size: 1rem;
+  }
+  
+  .responsive-text-base {
+    font-size: 1.125rem;
+  }
+  
+  .responsive-text-large {
+    font-size: 1.25rem;
+  }
+}
+
+/* === ENHANCED SCROLLBAR STYLES === */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Custom scrollbar for curriculum viewer */
+.curriculum-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.curriculum-content::-webkit-scrollbar-track {
+  background: #f8fafc;
+  border-radius: 4px;
+}
+
+.curriculum-content::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.curriculum-content::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* === ENHANCED LINK STYLES === */
+a {
+  color: #6366f1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #4f46e5;
+}
+
+a:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* === FOCUS AND SELECTION STYLES === */
+*:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: #6366f1;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: #6366f1;
+  color: white;
+}
+
+/* === ANIMATIONS === */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInFromLeft 0.5s ease-out;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Progress bar animations */
+@keyframes progressBar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: var(--progress);
+  }
+}
+
+.progress-animate {
+  animation: progressBar 1s ease-out;
+}
+
+/* Success animation */
+@keyframes successPulse {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.success-animation {
+  animation: successPulse 0.6s ease-out;
+}
+
+/* Error shake animation */
+@keyframes errorShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-2px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(2px);
+  }
+}
+
+.error-shake {
+  animation: errorShake 0.5s ease-out;
+}
+
+/* Goal card animations */
+.goal-card-enter {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.goal-card-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.3s ease-out;
+}
+
+.goal-card-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.goal-card-exit-active {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.3s ease-in;
+}
+
+/* === UTILITY CLASSES === */
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(45deg, #6366f1 30%, #f59e0b 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover effect */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Card glow effect */
+.card-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-glow::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card-glow:hover::before {
+  opacity: 1;
+}
+
+/* Gradient border */
+.gradient-border {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  padding: 2px;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(45deg, #6366f1, #f59e0b);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Enhanced backdrop blur */
+.backdrop-blur {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.backdrop-blur-strong {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+.shadow-glow-secondary {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+/* === TRANSITION UTILITIES === */
+.transition-all {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-transform {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-colors {
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.transition-slow {
+  transition: all 0.5s ease;
+}
+
+.transition-fast {
+  transition: all 0.15s ease;
+}
+
+/* === SPACING UTILITIES === */
+.spacing-responsive {
+  padding: 16px;
+}
+
+@media (min-width: 600px) {
+  .spacing-responsive {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 900px) {
+  .spacing-responsive {
+    padding: 32px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .spacing-responsive {
+    padding: 48px;
+  }
+}
+
+/* === ACCESSIBILITY IMPROVEMENTS === */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #6366f1;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  z-index: 100;
+  transition: top 0.3s ease;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Focus ring for better accessibility */
+.focus-ring:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* === COMPONENT-SPECIFIC ENHANCEMENTS === */
+
+/* Floating action button */
+.fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.fab:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Notification badge */
+.notification-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: #ef4444;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  border: 2px solid white;
+}
+
+/* === TOAST CUSTOMIZATIONS === */
+.Toastify__toast {
+  border-radius: 12px !important;
+  font-family: 'Inter', sans-serif !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.Toastify__toast--success {
+  background-color: #10b981 !important;
+}
+
+.Toastify__toast--error {
+  background-color: #ef4444 !important;
+}
+
+.Toastify__toast--info {
+  background-color: #3b82f6 !important;
+}
+
+.Toastify__toast--warning {
+  background-color: #f59e0b !important;
+}
+
+.Toastify__progress-bar {
+  background: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* === MUI COMPONENT OVERRIDES === */
+.MuiButton-root {
+  text-transform: none !important;
+}
+
+.MuiPaper-root {
+  transition: box-shadow 0.3s ease !important;
+}
+
+.MuiCard-root {
+  transition: all 0.3s ease !important;
+}
+
+/* Custom dialog styles */
+.custom-dialog {
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+.custom-dialog .MuiDialogTitle-root {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%);
+}
+
+/* === PRINT STYLES === */
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .full-width,
+  .responsive-full,
+  .breakout,
+  .breakout-safe {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+  }
+  
+  /* Ensure good page breaks */
+  .goal-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+}
+
+/* === DARK MODE PREPARATION === */
+@media (prefers-color-scheme: dark) {
+  /* Commented out for now - implement when adding dark mode */
+  /*
+  body {
+    background-color: #0f172a;
+    color: #f1f5f9;
+  }
+  
+  .skeleton {
+    background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+  }
+  */
+}
+
+/* === PERFORMANCE OPTIMIZATIONS === */
+
+/* Will-change for elements that will be animated */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* GPU acceleration for smooth animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* === LAYOUT DEBUGGING (Remove in production) === */
+/*
+.debug-layout * {
+  outline: 1px solid red !important;
+}
+
+.debug-layout .responsive-full {
+  background: rgba(255, 0, 0, 0.1) !important;
+}
+
+.debug-layout .full-width {
+  background: rgba(0, 255, 0, 0.1) !important;
+}
+
+.debug-layout .breakout {
+  background: rgba(0, 0, 255, 0.1) !important;
+}
+*/
