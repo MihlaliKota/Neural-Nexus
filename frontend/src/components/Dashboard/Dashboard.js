@@ -236,7 +236,13 @@ function Dashboard() {
             py: { xs: 4, sm: 6, md: 8 },
           }}
         >
-          <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 } }}>
+          <Box
+            sx={{
+              width: "100%",
+              px: { xs: 2, sm: 3, md: 4, lg: 6 },
+              maxWidth: "none",
+            }}
+          >
             <Grid container spacing={3} alignItems="center">
               <Grid item xs={12}>
                 <Typography
@@ -285,14 +291,16 @@ function Dashboard() {
                 </Box>
               </Grid>
             </Grid>
-          </Container>
+          </Box>
         </Box>
 
         {/* Main Content Area */}
-        <Container
-          maxWidth="xl"
-          sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 }, py: 4 }}
-        >
+        <Box sx={{ 
+  width: "100%", 
+  px: { xs: 2, sm: 3, md: 4, lg: 6 }, 
+  py: 4,
+  maxWidth: "none" // Override any inherited maxWidth
+}}>
           {error && (
             <Alert severity="error" sx={{ mb: 3 }}>
               {error}
@@ -833,7 +841,7 @@ function Dashboard() {
               </Paper>
             </Grid>
           </Grid>
-        </Container>
+        </Box>
       </Box>
     </>
   );

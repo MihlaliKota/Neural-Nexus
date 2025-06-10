@@ -1,0 +1,5396 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+================================================================
+File Summary
+================================================================
+
+Purpose:
+--------
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+
+File Format:
+------------
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  a. A separator line (================)
+  b. The file path (File: path/to/file)
+  c. Another separator line
+  d. The full contents of the file
+  e. A blank line
+
+Usage Guidelines:
+-----------------
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+
+Notes:
+------
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+
+
+================================================================
+Directory Structure
+================================================================
+.gitignore
+package.json
+public/index.html
+public/manifest.json
+public/robots.txt
+README.md
+src/App.js
+src/App.test.js
+src/components/Auth/Login.js
+src/components/Auth/ProtectedRoute.js
+src/components/Auth/Register.js
+src/components/Curriculum/CurriculumViewer.js
+src/components/Dashboard/Dashboard.js
+src/components/Goal/SubmitGoal.js
+src/components/Layout/Navigation.js
+src/components/User/UserProfile.js
+src/index.css
+src/index.js
+
+================================================================
+Files
+================================================================
+
+================
+File: .gitignore
+================
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+================
+File: package.json
+================
+{
+  "proxy": "http://localhost:5000",
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^7.1.0",
+    "@mui/material": "^7.1.0",
+    "@mui/x-date-pickers": "^8.4.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.9.0",
+    "date-fns": "^4.1.0",
+    "jwt-decode": "^4.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.0",
+    "react-scripts": "5.0.1",
+    "react-toastify": "^11.0.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
+
+================
+File: public/index.html
+================
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="AI-powered learning management system for personalized education" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Neural Nexus - AI-Powered Learning</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
+
+================
+File: public/manifest.json
+================
+{
+  "short_name": "React App",
+  "name": "Create React App Sample",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
+
+================
+File: public/robots.txt
+================
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow:
+
+================
+File: README.md
+================
+# Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+================
+File: src/App.js
+================
+import React from "react";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import {
+  Container,
+  ThemeProvider,
+  createTheme,
+  CssBaseline,
+  Box,
+} from "@mui/material";
+import Login from "./components/Auth/Login";
+import Register from "./components/Auth/Register";
+import ProtectedRoute from "./components/Auth/ProtectedRoute";
+import Navigation from "./components/Layout/Navigation";
+import SubmitGoal from "./components/Goal/SubmitGoal";
+import Dashboard from "./components/Dashboard/Dashboard";
+import UserProfile from "./components/User/UserProfile";
+import CurriculumViewer from "./components/Curriculum/CurriculumViewer";
+
+// Enhanced theme with better responsive breakpoints
+const theme = createTheme({
+  palette: {
+    mode: "light",
+    primary: {
+      main: "#6366f1",
+      light: "#818cf8",
+      dark: "#4f46e5",
+      contrastText: "#ffffff",
+    },
+    secondary: {
+      main: "#f59e0b",
+      light: "#fbbf24",
+      dark: "#d97706",
+      contrastText: "#ffffff",
+    },
+    background: {
+      default: "#f8fafc",
+      paper: "#ffffff",
+    },
+    text: {
+      primary: "#1e293b",
+      secondary: "#64748b",
+    },
+    success: {
+      main: "#10b981",
+      light: "#34d399",
+      dark: "#059669",
+    },
+    error: {
+      main: "#ef4444",
+      light: "#f87171",
+      dark: "#dc2626",
+    },
+    info: {
+      main: "#3b82f6",
+      light: "#60a5fa",
+      dark: "#2563eb",
+    },
+    warning: {
+      main: "#f59e0b",
+      light: "#fbbf24",
+      dark: "#d97706",
+    },
+  },
+  typography: {
+    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+    h1: {
+      fontSize: "2.5rem",
+      fontWeight: 700,
+      lineHeight: 1.2,
+      letterSpacing: "-0.02em",
+    },
+    h2: {
+      fontSize: "2rem",
+      fontWeight: 700,
+      lineHeight: 1.3,
+      letterSpacing: "-0.01em",
+    },
+    h3: {
+      fontSize: "1.75rem",
+      fontWeight: 600,
+      lineHeight: 1.4,
+    },
+    h4: {
+      fontSize: "1.5rem",
+      fontWeight: 600,
+      lineHeight: 1.4,
+    },
+    h5: {
+      fontSize: "1.25rem",
+      fontWeight: 600,
+      lineHeight: 1.5,
+    },
+    h6: {
+      fontSize: "1.125rem",
+      fontWeight: 600,
+      lineHeight: 1.5,
+    },
+    subtitle1: {
+      fontSize: "1.125rem",
+      fontWeight: 500,
+      lineHeight: 1.5,
+    },
+    body1: {
+      fontSize: "1rem",
+      lineHeight: 1.6,
+    },
+    body2: {
+      fontSize: "0.875rem",
+      lineHeight: 1.6,
+    },
+  },
+  shape: {
+    borderRadius: 12,
+  },
+  // Enhanced breakpoints for better responsive control
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
+  components: {
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          "&.full-width": {
+            maxWidth: "none !important",
+            padding: 0,
+            margin: 0,
+            width: "100%",
+          },
+          "&.responsive-full": {
+            maxWidth: "none !important",
+            width: "100%",
+            paddingLeft: 0,
+            paddingRight: 0,
+            "@media (min-width: 600px)": {
+              paddingLeft: 24,
+              paddingRight: 24,
+            },
+            "@media (min-width: 900px)": {
+              paddingLeft: 32,
+              paddingRight: 32,
+            },
+            "@media (min-width: 1200px)": {
+              paddingLeft: 48,
+              paddingRight: 48,
+            },
+          },
+        },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          boxShadow:
+            "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+          borderRadius: 16,
+          border: "1px solid rgba(0, 0, 0, 0.05)",
+          transition: "all 0.3s ease",
+          "&:hover": {
+            boxShadow:
+              "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+            transform: "translateY(-2px)",
+          },
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 10,
+          textTransform: "none",
+          fontWeight: 600,
+          fontSize: "0.95rem",
+          padding: "10px 20px",
+          transition: "all 0.2s ease",
+          "&:hover": {
+            transform: "translateY(-1px)",
+            boxShadow:
+              "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+          },
+        },
+        contained: {
+          boxShadow:
+            "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          boxShadow:
+            "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+          borderRadius: 16,
+        },
+      },
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          "& .MuiOutlinedInput-root": {
+            borderRadius: 10,
+            backgroundColor: "#f8fafc",
+            transition: "all 0.2s ease",
+            "&:hover": {
+              backgroundColor: "#f1f5f9",
+            },
+            "&.Mui-focused": {
+              backgroundColor: "#ffffff",
+            },
+          },
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          fontWeight: 500,
+        },
+      },
+    },
+  },
+});
+
+// Layout configuration for different routes
+const layoutConfig = {
+  "/login": { fullWidth: false, maxWidth: "sm", centerAuth: true },
+  "/register": { fullWidth: false, maxWidth: "sm", centerAuth: true },
+  "/dashboard": { fullWidth: true, responsive: true },
+  "/submit-goal": { fullWidth: false, maxWidth: "md" },
+  "/profile": { fullWidth: false, maxWidth: "md" },
+  "/curriculum": { fullWidth: true, responsive: true }, // This will match /curriculum/:goalId
+};
+
+// Get layout configuration for current route
+const getLayoutConfig = (pathname) => {
+  // Check for exact matches first
+  if (layoutConfig[pathname]) {
+    return layoutConfig[pathname];
+  }
+
+  // Check for pattern matches
+  if (pathname.startsWith("/curriculum/")) {
+    return layoutConfig["/curriculum"];
+  }
+
+  // Default configuration
+  return { fullWidth: false, maxWidth: "xl" };
+};
+
+function App() {
+  const location = useLocation();
+  const config = getLayoutConfig(location.pathname);
+
+  // Check if current route is an auth route
+  const isAuthRoute = ["/login", "/register"].includes(location.pathname);
+
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Box
+        className="App no-horizontal-scroll"
+        sx={{
+          minHeight: "100vh",
+          backgroundColor: theme.palette.background.default,
+          overflow: "hidden", // Prevent horizontal scroll
+          width: "100%",
+        }}
+      >
+        {/* Show navigation only for authenticated routes */}
+        {!isAuthRoute && <Navigation />}
+
+        {/* Dynamic container based on route configuration */}
+        {config.fullWidth ? (
+          // Full-width layout for dashboard and curriculum
+          <Box
+            className={
+              config.responsive ? "responsive-full" : "full-width-no-overflow"
+            }
+            sx={{
+              py: isAuthRoute ? 8 : 4,
+              minHeight: isAuthRoute ? "100vh" : "calc(100vh - 64px)",
+              width: "100%",
+            }}
+          >
+            <Routes>
+              {/* Public Routes */}
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+
+              {/* Protected Routes */}
+              <Route
+                path="/dashboard"
+                element={
+                  <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/submit-goal"
+                element={
+                  <ProtectedRoute>
+                    <SubmitGoal />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <UserProfile />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/curriculum/:goalId"
+                element={
+                  <ProtectedRoute>
+                    <CurriculumViewer />
+                  </ProtectedRoute>
+                }
+              />
+
+              {/* Default redirect */}
+              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+
+              {/* Fallback for unknown routes */}
+              <Route path="*" element={<Navigate to="/dashboard" replace />} />
+            </Routes>
+          </Box>
+        ) : (
+          // Constrained layout for forms and auth
+          <Container
+            maxWidth={config.maxWidth || "xl"}
+            className={config.responsive ? "responsive-full" : ""}
+            sx={{
+              py: isAuthRoute ? 8 : 4,
+              minHeight: isAuthRoute ? "100vh" : "calc(100vh - 64px)",
+              display: config.centerAuth ? "flex" : "block",
+              alignItems: config.centerAuth ? "center" : "stretch",
+              px: { xs: 2, sm: 3, md: 4 }, // Responsive padding
+            }}
+          >
+            <Routes>
+              {/* Public Routes */}
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+
+              {/* Protected Routes */}
+              <Route
+                path="/dashboard"
+                element={
+                  <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/submit-goal"
+                element={
+                  <ProtectedRoute>
+                    <SubmitGoal />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <UserProfile />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/curriculum/:goalId"
+                element={
+                  <ProtectedRoute>
+                    <CurriculumViewer />
+                  </ProtectedRoute>
+                }
+              />
+
+              {/* Default redirect */}
+              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+
+              {/* Fallback for unknown routes */}
+              <Route path="*" element={<Navigate to="/dashboard" replace />} />
+            </Routes>
+          </Container>
+        )}
+      </Box>
+    </ThemeProvider>
+  );
+}
+
+export default App;
+
+================
+File: src/App.test.js
+================
+// frontend/src/App.test.js - REPLACE entire file with:
+import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+
+test('renders without crashing', () => {
+  render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+});
+
+================
+File: src/components/Auth/Login.js
+================
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate, Link } from 'react-router-dom';
+import { 
+  TextField, 
+  Button, 
+  Typography, 
+  Box, 
+  Alert, 
+  Paper,
+  InputAdornment,
+  IconButton,
+  Divider,
+  CircularProgress
+} from '@mui/material';
+import {
+  Email as EmailIcon,
+  Lock as LockIcon,
+  Visibility,
+  VisibilityOff,
+  School as SchoolIcon,
+  ArrowForward as ArrowForwardIcon
+} from '@mui/icons-material';
+
+function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    setIsLoading(true);
+    
+    try {
+      const response = await axios.post('/api/auth/login', { email, password });
+      localStorage.setItem('token', response.data.token);
+      navigate('/dashboard');
+    } catch (err) {
+      setError(err.response?.data?.message || 'Login failed. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <Box
+      sx={{
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <Paper
+        elevation={0}
+        sx={{
+          p: 4,
+          width: '100%',
+          maxWidth: 480,
+          borderRadius: 3,
+          border: '1px solid',
+          borderColor: 'divider',
+          background: 'rgba(255, 255, 255, 0.9)',
+          backdropFilter: 'blur(10px)',
+        }}
+      >
+        {/* Logo and Title */}
+        <Box sx={{ textAlign: 'center', mb: 4 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+            <Box
+              sx={{
+                width: 80,
+                height: 80,
+                borderRadius: 2,
+                background: 'linear-gradient(45deg, #6366f1 30%, #f59e0b 90%)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 8px 16px 0 rgba(99, 102, 241, 0.24)',
+              }}
+            >
+              <SchoolIcon sx={{ fontSize: 48, color: 'white' }} />
+            </Box>
+          </Box>
+          <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>
+            Welcome Back
+          </Typography>
+          <Typography variant="body1" color="text.secondary">
+            Continue your learning journey with Neural Nexus
+          </Typography>
+        </Box>
+
+        {error && (
+          <Alert severity="error" sx={{ mb: 3 }}>
+            {error}
+          </Alert>
+        )}
+
+        <Box component="form" onSubmit={handleSubmit} noValidate>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <EmailIcon sx={{ color: 'text.secondary' }} />
+                </InputAdornment>
+              ),
+            }}
+            sx={{ mb: 2 }}
+          />
+          
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type={showPassword ? 'text' : 'password'}
+            id="password"
+            autoComplete="current-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <LockIcon sx={{ color: 'text.secondary' }} />
+                </InputAdornment>
+              ),
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={() => setShowPassword(!showPassword)}
+                    edge="end"
+                    size="small"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            sx={{ mb: 3 }}
+          />
+
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            size="large"
+            disabled={isLoading || !email || !password}
+            sx={{ 
+              mb: 2,
+              background: 'linear-gradient(45deg, #6366f1 30%, #818cf8 90%)',
+              boxShadow: '0 3px 5px 2px rgba(99, 102, 241, .3)',
+              '&:hover': {
+                background: 'linear-gradient(45deg, #4f46e5 30%, #6366f1 90%)',
+              }
+            }}
+            endIcon={isLoading ? null : <ArrowForwardIcon />}
+          >
+            {isLoading ? <CircularProgress size={24} color="inherit" /> : 'Sign In'}
+          </Button>
+
+          <Box sx={{ textAlign: 'center' }}>
+            <Link to="#" style={{ textDecoration: 'none' }}>
+              <Typography variant="body2" color="primary" sx={{ fontWeight: 500 }}>
+                Forgot password?
+              </Typography>
+            </Link>
+          </Box>
+
+          <Divider sx={{ my: 3 }}>
+            <Typography variant="body2" color="text.secondary">
+              OR
+            </Typography>
+          </Divider>
+
+          <Box sx={{ textAlign: 'center' }}>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+              Don't have an account?
+            </Typography>
+            <Link to="/register" style={{ textDecoration: 'none' }}>
+              <Button
+                variant="outlined"
+                fullWidth
+                size="large"
+                sx={{ fontWeight: 600 }}
+              >
+                Create Account
+              </Button>
+            </Link>
+          </Box>
+        </Box>
+      </Paper>
+
+      {/* Background decoration */}
+      <Box
+        sx={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: -1,
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          opacity: 0.05,
+          pointerEvents: 'none',
+        }}
+      />
+    </Box>
+  );
+}
+
+export default Login;
+
+================
+File: src/components/Auth/ProtectedRoute.js
+================
+import React, { useEffect, useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import { CircularProgress, Box } from '@mui/material';
+import { jwtDecode } from 'jwt-decode';
+
+const ProtectedRoute = ({ children }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const checkAuth = () => {
+      const token = localStorage.getItem('token');
+      
+      if (!token) {
+        setIsAuthenticated(false);
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        const decoded = jwtDecode(token);
+        const currentTime = Date.now() / 1000;
+        
+        if (decoded.exp < currentTime) {
+          // Token expired
+          localStorage.removeItem('token');
+          setIsAuthenticated(false);
+        } else {
+          setIsAuthenticated(true);
+        }
+      } catch (error) {
+        console.error('Invalid token:', error);
+        localStorage.removeItem('token');
+        setIsAuthenticated(false);
+      }
+      
+      setIsLoading(false);
+    };
+
+    checkAuth();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <Box 
+        display="flex" 
+        justifyContent="center" 
+        alignItems="center" 
+        minHeight="100vh"
+      >
+        <CircularProgress />
+      </Box>
+    );
+  }
+
+  return isAuthenticated ? children : <Navigate to="/login" replace />;
+};
+
+export default ProtectedRoute;
+
+================
+File: src/components/Auth/Register.js
+================
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate, Link } from 'react-router-dom';
+import { 
+  TextField, 
+  Button, 
+  Typography, 
+  Box, 
+  Alert, 
+  Paper,
+  InputAdornment,
+  IconButton,
+  Divider,
+  CircularProgress,
+  Stepper,
+  Step,
+  StepLabel,
+  Checkbox,
+  FormControlLabel
+} from '@mui/material';
+import {
+  Email as EmailIcon,
+  Lock as LockIcon,
+  Person as PersonIcon,
+  Visibility,
+  VisibilityOff,
+  School as SchoolIcon,
+  ArrowForward as ArrowForwardIcon,
+  ArrowBack as ArrowBackIcon,
+  CheckCircle as CheckCircleIcon
+} from '@mui/icons-material';
+
+function Register() {
+  const [activeStep, setActiveStep] = useState(0);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [agreeToTerms, setAgreeToTerms] = useState(false);
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const steps = ['Personal Info', 'Security', 'Confirmation'];
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  const validatePassword = (password) => {
+    return password.length >= 6;
+  };
+
+  const getPasswordStrength = (password) => {
+    if (!password) return { strength: 0, label: 'Enter password', color: '#e0e0e0' };
+    if (password.length < 6) return { strength: 25, label: 'Too short', color: '#ef4444' };
+    
+    let strength = 0;
+    if (password.length >= 8) strength += 25;
+    if (/[a-z]/.test(password) && /[A-Z]/.test(password)) strength += 25;
+    if (/[0-9]/.test(password)) strength += 25;
+    if (/[^A-Za-z0-9]/.test(password)) strength += 25;
+    
+    if (strength <= 25) return { strength, label: 'Weak', color: '#ef4444' };
+    if (strength <= 50) return { strength, label: 'Fair', color: '#f59e0b' };
+    if (strength <= 75) return { strength, label: 'Good', color: '#3b82f6' };
+    return { strength: 100, label: 'Strong', color: '#10b981' };
+  };
+
+  const handleNext = () => {
+    if (activeStep === 0) {
+      if (!name.trim()) {
+        setError('Please enter your name');
+        return;
+      }
+      if (!validateEmail(email)) {
+        setError('Please enter a valid email address');
+        return;
+      }
+    } else if (activeStep === 1) {
+      if (!validatePassword(password)) {
+        setError('Password must be at least 6 characters');
+        return;
+      }
+      if (password !== confirmPassword) {
+        setError('Passwords do not match');
+        return;
+      }
+    }
+    
+    setError('');
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setError('');
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!agreeToTerms) {
+      setError('Please agree to the terms and conditions');
+      return;
+    }
+    
+    setError('');
+    setIsLoading(true);
+    
+    try {
+      const response = await axios.post('/api/auth/register', { name, email, password });
+      localStorage.setItem('token', response.data.token);
+      navigate('/dashboard');
+    } catch (err) {
+      setError(err.response?.data?.message || 'Registration failed. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const passwordStrength = getPasswordStrength(password);
+
+  const getStepContent = (step) => {
+    switch (step) {
+      case 0:
+        return (
+          <>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="name"
+              label="Full Name"
+              name="name"
+              autoComplete="name"
+              autoFocus
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <PersonIcon sx={{ color: 'text.secondary' }} />
+                  </InputAdornment>
+                ),
+              }}
+              sx={{ mb: 2 }}
+            />
+            
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <EmailIcon sx={{ color: 'text.secondary' }} />
+                  </InputAdornment>
+                ),
+              }}
+              helperText="We'll use this for login and notifications"
+            />
+          </>
+        );
+      
+      case 1:
+        return (
+          <>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type={showPassword ? 'text' : 'password'}
+              id="password"
+              autoComplete="new-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LockIcon sx={{ color: 'text.secondary' }} />
+                  </InputAdornment>
+                ),
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={() => setShowPassword(!showPassword)}
+                      edge="end"
+                      size="small"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+              sx={{ mb: 1 }}
+            />
+            
+            {/* Password strength indicator */}
+            <Box sx={{ mb: 3 }}>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.5 }}>
+                <Typography variant="caption" color="text.secondary">
+                  Password strength
+                </Typography>
+                <Typography variant="caption" sx={{ color: passwordStrength.color, fontWeight: 600 }}>
+                  {passwordStrength.label}
+                </Typography>
+              </Box>
+              <Box sx={{ height: 4, bgcolor: '#e0e0e0', borderRadius: 2, overflow: 'hidden' }}>
+                <Box
+                  sx={{
+                    height: '100%',
+                    width: `${passwordStrength.strength}%`,
+                    bgcolor: passwordStrength.color,
+                    transition: 'all 0.3s ease',
+                  }}
+                />
+              </Box>
+            </Box>
+            
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="confirmPassword"
+              label="Confirm Password"
+              type={showConfirmPassword ? 'text' : 'password'}
+              id="confirmPassword"
+              autoComplete="new-password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LockIcon sx={{ color: 'text.secondary' }} />
+                  </InputAdornment>
+                ),
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      edge="end"
+                      size="small"
+                    >
+                      {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </>
+        );
+      
+      case 2:
+        return (
+          <>
+            <Box sx={{ mb: 3, p: 3, bgcolor: 'background.default', borderRadius: 2 }}>
+              <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
+                Confirm Your Details
+              </Typography>
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                <Box>
+                  <Typography variant="caption" color="text.secondary">
+                    Name
+                  </Typography>
+                  <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                    {name}
+                  </Typography>
+                </Box>
+                <Box>
+                  <Typography variant="caption" color="text.secondary">
+                    Email
+                  </Typography>
+                  <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                    {email}
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+            
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={agreeToTerms}
+                  onChange={(e) => setAgreeToTerms(e.target.checked)}
+                  color="primary"
+                />
+              }
+              label={
+                <Typography variant="body2">
+                  I agree to the{' '}
+                  <Link to="#" style={{ textDecoration: 'none', fontWeight: 500 }}>
+                    Terms of Service
+                  </Link>{' '}
+                  and{' '}
+                  <Link to="#" style={{ textDecoration: 'none', fontWeight: 500 }}>
+                    Privacy Policy
+                  </Link>
+                </Typography>
+              }
+            />
+          </>
+        );
+      
+      default:
+        return 'Unknown step';
+    }
+  };
+
+  return (
+    <Box
+      sx={{
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <Paper
+        elevation={0}
+        sx={{
+          p: 4,
+          width: '100%',
+          maxWidth: 480,
+          borderRadius: 3,
+          border: '1px solid',
+          borderColor: 'divider',
+          background: 'rgba(255, 255, 255, 0.9)',
+          backdropFilter: 'blur(10px)',
+        }}
+      >
+        {/* Logo and Title */}
+        <Box sx={{ textAlign: 'center', mb: 4 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+            <Box
+              sx={{
+                width: 80,
+                height: 80,
+                borderRadius: 2,
+                background: 'linear-gradient(45deg, #6366f1 30%, #f59e0b 90%)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 8px 16px 0 rgba(99, 102, 241, 0.24)',
+              }}
+            >
+              <SchoolIcon sx={{ fontSize: 48, color: 'white' }} />
+            </Box>
+          </Box>
+          <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>
+            Join Neural Nexus
+          </Typography>
+          <Typography variant="body1" color="text.secondary">
+            Start your AI-powered learning journey today
+          </Typography>
+        </Box>
+
+        {/* Stepper */}
+        <Stepper activeStep={activeStep} sx={{ mb: 4 }}>
+          {steps.map((label) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+
+        {error && (
+          <Alert severity="error" sx={{ mb: 3 }}>
+            {error}
+          </Alert>
+        )}
+
+        <Box component="form" onSubmit={handleSubmit} noValidate>
+          {getStepContent(activeStep)}
+          
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 3 }}>
+            <Button
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              startIcon={<ArrowBackIcon />}
+            >
+              Back
+            </Button>
+            
+            {activeStep === steps.length - 1 ? (
+              <Button
+                type="submit"
+                variant="contained"
+                disabled={isLoading || !agreeToTerms}
+                sx={{ 
+                  background: 'linear-gradient(45deg, #6366f1 30%, #818cf8 90%)',
+                  boxShadow: '0 3px 5px 2px rgba(99, 102, 241, .3)',
+                  '&:hover': {
+                    background: 'linear-gradient(45deg, #4f46e5 30%, #6366f1 90%)',
+                  }
+                }}
+                endIcon={isLoading ? null : <CheckCircleIcon />}
+              >
+                {isLoading ? <CircularProgress size={24} color="inherit" /> : 'Create Account'}
+              </Button>
+            ) : (
+              <Button
+                onClick={handleNext}
+                variant="contained"
+                endIcon={<ArrowForwardIcon />}
+                sx={{ 
+                  background: 'linear-gradient(45deg, #6366f1 30%, #818cf8 90%)',
+                  boxShadow: '0 3px 5px 2px rgba(99, 102, 241, .3)',
+                }}
+              >
+                Next
+              </Button>
+            )}
+          </Box>
+        </Box>
+
+        <Divider sx={{ my: 3 }}>
+          <Typography variant="body2" color="text.secondary">
+            OR
+          </Typography>
+        </Divider>
+
+        <Box sx={{ textAlign: 'center' }}>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+            Already have an account?
+          </Typography>
+          <Link to="/login" style={{ textDecoration: 'none' }}>
+            <Button
+              variant="outlined"
+              fullWidth
+              size="large"
+              sx={{ fontWeight: 600 }}
+            >
+              Sign In
+            </Button>
+          </Link>
+        </Box>
+      </Paper>
+
+      {/* Background decoration */}
+      <Box
+        sx={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: -1,
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          opacity: 0.05,
+          pointerEvents: 'none',
+        }}
+      />
+    </Box>
+  );
+}
+
+export default Register;
+
+================
+File: src/components/Curriculum/CurriculumViewer.js
+================
+import React, { useState, useEffect } from 'react';
+import {
+  Container,
+  Paper,
+  Typography,
+  Box,
+  Button,
+  CircularProgress,
+  Alert,
+  Chip,
+  IconButton,
+  Tooltip,
+  Card,
+  CardContent,
+  Divider
+} from '@mui/material';
+import {
+  ArrowBack as ArrowBackIcon,
+  School as SchoolIcon,
+  Print as PrintIcon,
+  Share as ShareIcon,
+  Download as DownloadIcon
+} from '@mui/icons-material';
+import { useParams, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+function CurriculumViewer() {
+  const { goalId } = useParams();
+  const navigate = useNavigate();
+  const [curriculumData, setCurriculumData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    fetchCurriculum();
+  }, [goalId]);
+
+  const fetchCurriculum = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.get(`/api/goals/${goalId}/curriculum`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      
+      setCurriculumData(response.data.data);
+    } catch (error) {
+      console.error('Error fetching curriculum:', error);
+      const errorMessage = error.response?.data?.message || 'Failed to load curriculum';
+      setError(errorMessage);
+      toast.error(errorMessage);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Format curriculum for display
+  const formatCurriculum = (curriculumText) => {
+    if (!curriculumText) return '';
+    
+    let formatted = curriculumText
+      .replace(/^# (.*$)/gim, '<h1 style="color: #1976d2; margin-top: 32px; margin-bottom: 20px; font-weight: bold; font-size: 2rem; border-bottom: 3px solid #1976d2; padding-bottom: 10px;">$1</h1>')
+      .replace(/^## (.*$)/gim, '<h2 style="color: #1976d2; margin-top: 28px; margin-bottom: 16px; font-weight: bold; font-size: 1.5rem;">$1</h2>')
+      .replace(/^### (.*$)/gim, '<h3 style="color: #1976d2; margin-top: 24px; margin-bottom: 12px; font-weight: bold; font-size: 1.25rem;">$1</h3>')
+      .replace(/^#### (.*$)/gim, '<h4 style="color: #1976d2; margin-top: 20px; margin-bottom: 8px; font-weight: bold; font-size: 1.1rem;">$1</h4>')
+      .replace(/\*\*(.*?)\*\*/g, '<strong style="color: #333; font-weight: 600;">$1</strong>')
+      .replace(/^\* (.*$)/gim, '<li style="margin-bottom: 8px; padding-left: 8px; line-height: 1.6;">$1</li>')
+      .replace(/^- (.*$)/gim, '<li style="margin-bottom: 8px; padding-left: 8px; line-height: 1.6;">$1</li>')
+      .replace(/^\d+\. (.*$)/gim, '<li style="margin-bottom: 8px; padding-left: 8px; line-height: 1.6; list-style-type: decimal;">$1</li>');
+    
+    // Wrap consecutive <li> elements in <ul> or <ol> tags
+    formatted = formatted.replace(/(<li[^>]*>.*?<\/li>\s*)+/gs, (match) => {
+      if (match.includes('list-style-type: decimal')) {
+        return '<ol style="margin: 16px 0; padding-left: 24px; background: #f9f9f9; padding: 16px; border-radius: 8px;">' + match + '</ol>';
+      } else {
+        return '<ul style="margin: 16px 0; padding-left: 24px; background: #f9f9f9; padding: 16px; border-radius: 8px;">' + match + '</ul>';
+      }
+    });
+    
+    // Handle paragraphs
+    formatted = formatted
+      .split('\n\n')
+      .map(paragraph => paragraph.trim())
+      .filter(paragraph => paragraph.length > 0)
+      .map(paragraph => {
+        if (paragraph.startsWith('<h') || paragraph.startsWith('<ul') || paragraph.startsWith('<ol')) {
+          return paragraph;
+        }
+        return `<p style="margin-bottom: 16px; line-height: 1.7; color: #444;">${paragraph}</p>`;
+      })
+      .join('');
+    
+    return formatted;
+  };
+
+  const handlePrint = () => {
+    window.print();
+  };
+
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: `Learning Curriculum: ${curriculumData?.goalDescription}`,
+          text: 'Check out my AI-generated learning curriculum!',
+          url: window.location.href,
+        });
+      } catch (error) {
+        console.log('Error sharing:', error);
+      }
+    } else {
+      // Fallback: copy URL to clipboard
+      navigator.clipboard.writeText(window.location.href);
+      toast.success('URL copied to clipboard!');
+    }
+  };
+
+  const handleDownload = () => {
+    if (!curriculumData?.curriculum) return;
+    
+    const element = document.createElement('a');
+    const file = new Blob([curriculumData.curriculum], { type: 'text/plain' });
+    element.href = URL.createObjectURL(file);
+    element.download = `curriculum-${curriculumData.goalDescription.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}.txt`;
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+    toast.success('Curriculum downloaded!');
+  };
+
+  if (loading) {
+    return (
+      <Box sx={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        minHeight: '60vh',
+        width: '100%'
+      }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
+
+  if (error) {
+    return (
+      <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 }, py: 4 }}>
+        <Alert severity="error" sx={{ mb: 3 }}>
+          {error}
+        </Alert>
+        <Button
+          variant="outlined"
+          startIcon={<ArrowBackIcon />}
+          onClick={() => navigate('/dashboard')}
+        >
+          Back to Dashboard
+        </Button>
+      </Container>
+    );
+  }
+
+  return (
+    <Box sx={{ width: '100%', minHeight: '100vh' }}>
+      <ToastContainer />
+      
+      {/* Full-width header with gradient background */}
+      <Box 
+        sx={{ 
+          width: '100%',
+          background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%)',
+          borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
+          py: { xs: 3, sm: 4, md: 6 }
+        }}
+      >
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 } }}>
+          {/* Navigation and Title */}
+          <Box sx={{ mb: 4 }}>
+            <Box sx={{ 
+              display: 'flex', 
+              alignItems: { xs: 'flex-start', sm: 'center' }, 
+              flexDirection: { xs: 'column', sm: 'row' },
+              gap: { xs: 2, sm: 0 },
+              mb: 2 
+            }}>
+              <Button
+                variant="outlined"
+                startIcon={<ArrowBackIcon />}
+                onClick={() => navigate('/dashboard')}
+                sx={{ mr: { xs: 0, sm: 2 }, alignSelf: { xs: 'flex-start', sm: 'auto' } }}
+              >
+                Back to Dashboard
+              </Button>
+              
+              <Box sx={{ flexGrow: 1 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                  <SchoolIcon sx={{ mr: 1, color: 'primary.main', fontSize: { xs: 28, sm: 32 } }} />
+                  <Typography 
+                    variant="h4" 
+                    sx={{ 
+                      fontWeight: 'bold',
+                      fontSize: { xs: '1.75rem', sm: '2rem', md: '2.5rem' }
+                    }}
+                  >
+                    Learning Curriculum
+                  </Typography>
+                </Box>
+                <Typography 
+                  variant="body1" 
+                  color="text.secondary"
+                  sx={{ fontSize: { xs: '0.875rem', sm: '1rem' } }}
+                >
+                  AI-generated learning path for your goal
+                </Typography>
+              </Box>
+
+              {/* Action Buttons */}
+              <Box sx={{ 
+                display: 'flex', 
+                gap: 1, 
+                flexDirection: { xs: 'row', sm: 'row' },
+                justifyContent: { xs: 'flex-start', sm: 'flex-end' }
+              }}>
+                <Tooltip title="Print Curriculum">
+                  <IconButton onClick={handlePrint} color="primary" size="small">
+                    <PrintIcon />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Share Curriculum">
+                  <IconButton onClick={handleShare} color="primary" size="small">
+                    <ShareIcon />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Download as Text">
+                  <IconButton onClick={handleDownload} color="primary" size="small">
+                    <DownloadIcon />
+                  </IconButton>
+                </Tooltip>
+              </Box>
+            </Box>
+          </Box>
+
+          {/* Goal Info Card */}
+          {curriculumData && (
+            <Card sx={{ mb: 4 }}>
+              <CardContent sx={{ p: { xs: 2, sm: 3 } }}>
+                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+                  Learning Goal
+                </Typography>
+                <Typography variant="body1" sx={{ mb: 2 }}>
+                  {curriculumData.goalDescription}
+                </Typography>
+                <Box sx={{ 
+                  display: 'flex', 
+                  gap: 2, 
+                  alignItems: 'center',
+                  flexDirection: { xs: 'column', sm: 'row' },
+                  alignItems: { xs: 'flex-start', sm: 'center' }
+                }}>
+                  <Chip 
+                    label="AI Generated" 
+                    color="primary" 
+                    size="small"
+                    icon={<SchoolIcon />}
+                  />
+                  {curriculumData.generatedAt && (
+                    <Typography variant="caption" color="text.secondary">
+                      Generated on {new Date(curriculumData.generatedAt).toLocaleDateString()}
+                    </Typography>
+                  )}
+                </Box>
+              </CardContent>
+            </Card>
+          )}
+        </Container>
+      </Box>
+
+      {/* Curriculum Content - Full Width with Constrained Inner Content */}
+      <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 }, py: 4 }}>
+        <Paper 
+          elevation={3} 
+          sx={{ 
+            p: { xs: 3, sm: 4, md: 6 },
+            minHeight: '60vh',
+            '@media print': {
+              boxShadow: 'none',
+              '& .MuiButton-root': { display: 'none' }
+            }
+          }}
+        >
+          {curriculumData?.curriculum ? (
+            <Box
+              className="curriculum-content"
+              sx={{
+                maxWidth: '900px', // Optimal reading width
+                margin: '0 auto', // Center the content
+                '& h1': { 
+                  color: 'primary.main',
+                  borderBottom: '3px solid #1976d2',
+                  paddingBottom: '10px',
+                  marginBottom: '20px',
+                  fontSize: { xs: '1.5rem', sm: '2rem' },
+                  fontWeight: 'bold'
+                },
+                '& h2': { 
+                  color: 'primary.main',
+                  marginTop: '28px',
+                  marginBottom: '16px',
+                  fontSize: { xs: '1.25rem', sm: '1.5rem' },
+                  fontWeight: 'bold'
+                },
+                '& h3': { 
+                  color: 'primary.main',
+                  marginTop: '24px',
+                  marginBottom: '12px',
+                  fontSize: { xs: '1.125rem', sm: '1.25rem' },
+                  fontWeight: 'bold'
+                },
+                '& h4': { 
+                  color: 'primary.main',
+                  marginTop: '20px',
+                  marginBottom: '8px',
+                  fontSize: { xs: '1rem', sm: '1.1rem' },
+                  fontWeight: 'bold'
+                },
+                '& p': { 
+                  marginBottom: '16px',
+                  lineHeight: 1.7,
+                  color: '#444',
+                  fontSize: { xs: '0.875rem', sm: '1rem' }
+                },
+                '& ul, & ol': { 
+                  marginBottom: '16px',
+                  paddingLeft: { xs: '20px', sm: '24px' },
+                  background: '#f9f9f9',
+                  padding: { xs: '12px', sm: '16px' },
+                  borderRadius: '8px'
+                },
+                '& li': { 
+                  marginBottom: '8px',
+                  lineHeight: 1.6,
+                  paddingLeft: '8px',
+                  fontSize: { xs: '0.875rem', sm: '1rem' }
+                },
+                '& strong': {
+                  color: '#333',
+                  fontWeight: 600
+                }
+              }}
+              dangerouslySetInnerHTML={{ 
+                __html: formatCurriculum(curriculumData.curriculum) 
+              }}
+            />
+          ) : (
+            <Box sx={{ textAlign: 'center', py: 8 }}>
+              <Typography variant="h6" color="text.secondary">
+                No curriculum content available
+              </Typography>
+            </Box>
+          )}
+        </Paper>
+      </Container>
+
+      {/* Footer Actions - Full Width Background */}
+      <Box 
+        sx={{ 
+          width: '100%',
+          background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.02) 0%, rgba(245, 158, 11, 0.02) 100%)',
+          borderTop: '1px solid rgba(0, 0, 0, 0.05)',
+          py: 4
+        }}
+      >
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 } }}>
+          <Box sx={{ textAlign: 'center' }}>
+            <Button
+              variant="contained"
+              onClick={() => navigate('/dashboard')}
+              size="large"
+              sx={{ 
+                background: 'linear-gradient(45deg, #6366f1 30%, #818cf8 90%)',
+                boxShadow: '0 3px 5px 2px rgba(99, 102, 241, .3)',
+              }}
+            >
+              Back to Dashboard
+            </Button>
+          </Box>
+        </Container>
+      </Box>
+    </Box>
+  );
+}
+
+export default CurriculumViewer;
+
+================
+File: src/components/Dashboard/Dashboard.js
+================
+import React, { useState, useEffect } from "react";
+import {
+  Typography,
+  Card,
+  CardContent,
+  Grid,
+  Button,
+  Box,
+  Chip,
+  IconButton,
+  Tooltip,
+  Alert,
+  CircularProgress,
+  Avatar,
+  Paper,
+  LinearProgress,
+  useTheme,
+  alpha,
+  Container,
+} from "@mui/material";
+import {
+  Add as AddIcon,
+  Delete as DeleteIcon,
+  Schedule as ScheduleIcon,
+  TrendingUp as TrendingUpIcon,
+  Assignment as AssignmentIcon,
+  CheckCircle as CheckCircleIcon,
+  Pause as PauseIcon,
+  PlayArrow as PlayArrowIcon,
+  School as SchoolIcon,
+  MenuBook as MenuBookIcon,
+  CalendarToday as CalendarIcon,
+  Flag as FlagIcon,
+} from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+function Dashboard() {
+  const [dashboardData, setDashboardData] = useState(null);
+  const [goals, setGoals] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const theme = useTheme();
+
+  const categoryConfig = {
+    "web-development": {
+      icon: "💻",
+      color: "#3b82f6",
+      label: "Web Development",
+    },
+    "data-science": { icon: "📊", color: "#8b5cf6", label: "Data Science" },
+    "mobile-development": {
+      icon: "📱",
+      color: "#06b6d4",
+      label: "Mobile Development",
+    },
+    devops: { icon: "⚙️", color: "#6366f1", label: "DevOps" },
+    design: { icon: "🎨", color: "#ec4899", label: "UI/UX Design" },
+    business: { icon: "💼", color: "#f59e0b", label: "Business" },
+    language: { icon: "🔤", color: "#10b981", label: "Programming Language" },
+    general: { icon: "📚", color: "#64748b", label: "General" },
+  };
+
+  const priorityConfig = {
+    low: { color: "#10b981", label: "Low", icon: "🟢" },
+    medium: { color: "#f59e0b", label: "Medium", icon: "🟡" },
+    high: { color: "#ef4444", label: "High", icon: "🔴" },
+    urgent: { color: "#7c3aed", label: "Urgent", icon: "🚨" },
+  };
+
+  const statusConfig = {
+    pending: { color: "#64748b", label: "Pending", icon: ScheduleIcon },
+    "in-progress": {
+      color: "#3b82f6",
+      label: "In Progress",
+      icon: PlayArrowIcon,
+    },
+    completed: { color: "#10b981", label: "Completed", icon: CheckCircleIcon },
+    paused: { color: "#f59e0b", label: "Paused", icon: PauseIcon },
+  };
+
+  useEffect(() => {
+    fetchDashboardData();
+    fetchGoals();
+  }, []);
+
+  const fetchDashboardData = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.get("/api/user/dashboard", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setDashboardData(response.data.data);
+    } catch (error) {
+      console.error("Error fetching dashboard data:", error);
+      setError("Failed to load dashboard data");
+    }
+  };
+
+  const fetchGoals = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.get("/api/goals", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setGoals(response.data.data);
+    } catch (error) {
+      console.error("Error fetching goals:", error);
+      setError("Failed to load goals");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDeleteGoal = async (goalId) => {
+    if (!window.confirm("Are you sure you want to delete this goal?")) {
+      return;
+    }
+
+    try {
+      const token = localStorage.getItem("token");
+      await axios.delete(`/api/goals/${goalId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      toast.success("Goal deleted successfully");
+      fetchGoals();
+      fetchDashboardData();
+    } catch (error) {
+      toast.error("Failed to delete goal");
+      console.error("Error deleting goal:", error);
+    }
+  };
+
+  const handleUpdateGoalStatus = async (goalId, newStatus) => {
+    try {
+      const token = localStorage.getItem("token");
+      await axios.put(
+        `/api/goals/${goalId}`,
+        { status: newStatus },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+
+      toast.success("Goal status updated successfully");
+      fetchGoals();
+      fetchDashboardData();
+    } catch (error) {
+      toast.error("Failed to update goal status");
+      console.error("Error updating goal:", error);
+    }
+  };
+
+  const handleViewCurriculum = (goalId) => {
+    navigate(`/curriculum/${goalId}`);
+  };
+
+  const formatDate = (dateString) => {
+    if (!dateString) return "No deadline";
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffTime = date - now;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    if (diffDays === 0) return "Today";
+    if (diffDays === 1) return "Tomorrow";
+    if (diffDays > 0 && diffDays <= 7) return `In ${diffDays} days`;
+
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  };
+
+  const isOverdue = (targetDate) => {
+    if (!targetDate) return false;
+    return new Date(targetDate) < new Date();
+  };
+
+  // Calculate real statistics from actual goals data
+  const calculateRealStats = () => {
+    const activeGoalsCount = goals.filter(
+      (g) => g.status === "in-progress"
+    ).length;
+    const completedGoalsCount = goals.filter(
+      (g) => g.status === "completed"
+    ).length;
+    const totalGoalsCount = goals.length;
+    const completionRate =
+      totalGoalsCount > 0
+        ? Math.round((completedGoalsCount / totalGoalsCount) * 100)
+        : 0;
+
+    return {
+      activeGoalsCount,
+      completedGoalsCount,
+      totalGoalsCount,
+      completionRate,
+    };
+  };
+
+  if (loading) {
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "60vh",
+          width: "100%",
+        }}
+      >
+        <CircularProgress size={48} />
+      </Box>
+    );
+  }
+
+  const stats = calculateRealStats();
+
+  return (
+    <>
+      <ToastContainer position="top-right" />
+
+      {/* Full-width wrapper with responsive padding */}
+      <Box sx={{ width: "100%", minHeight: "100vh" }}>
+        {/* Hero Section - Full Width Background */}
+        <Box
+          sx={{
+            width: "100%",
+            background:
+              "linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%)",
+            borderBottom: "1px solid rgba(0, 0, 0, 0.05)",
+            py: { xs: 4, sm: 6, md: 8 },
+          }}
+        >
+          <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 } }}>
+            <Grid container spacing={3} alignItems="center">
+              <Grid item xs={12}>
+                <Typography
+                  variant="h3"
+                  gutterBottom
+                  sx={{
+                    fontWeight: 700,
+                    color: "text.primary",
+                    fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
+                  }}
+                >
+                  Welcome back! 👋
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "text.secondary",
+                    mb: 3,
+                    fontSize: { xs: "1rem", sm: "1.25rem" },
+                  }}
+                >
+                  Continue your learning journey and track your progress
+                </Typography>
+                <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+                  <Button
+                    variant="contained"
+                    size="large"
+                    startIcon={<AddIcon />}
+                    onClick={() => navigate("/submit-goal")}
+                    sx={{
+                      background:
+                        "linear-gradient(45deg, #6366f1 30%, #818cf8 90%)",
+                      boxShadow: "0 3px 5px 2px rgba(99, 102, 241, .3)",
+                    }}
+                  >
+                    Create New Learning Goal
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    size="large"
+                    startIcon={<TrendingUpIcon />}
+                    onClick={() => navigate("/profile")}
+                  >
+                    View Your Progress
+                  </Button>
+                </Box>
+              </Grid>
+            </Grid>
+          </Container>
+        </Box>
+
+        {/* Main Content Area */}
+        <Container
+          maxWidth="xl"
+          sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 }, py: 4 }}
+        >
+          {error && (
+            <Alert severity="error" sx={{ mb: 3 }}>
+              {error}
+            </Alert>
+          )}
+
+          {/* Statistics Cards - Full Width Grid */}
+          <Grid container spacing={3} sx={{ mb: 4 }}>
+            <Grid item xs={12} sm={6} lg={3}>
+              <Card
+                sx={{
+                  background:
+                    "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                  height: "100%",
+                }}
+              >
+                <CardContent>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <Box>
+                      <Typography
+                        variant="h3"
+                        sx={{ fontWeight: 700, color: "white", mb: 0.5 }}
+                      >
+                        {stats.totalGoalsCount}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{ color: "rgba(255, 255, 255, 0.8)" }}
+                      >
+                        Total Goals
+                      </Typography>
+                    </Box>
+                    <AssignmentIcon
+                      sx={{ fontSize: 48, color: "rgba(255, 255, 255, 0.3)" }}
+                    />
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+
+            <Grid item xs={12} sm={6} lg={3}>
+              <Card
+                sx={{
+                  background:
+                    "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+                  height: "100%",
+                }}
+              >
+                <CardContent>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <Box>
+                      <Typography
+                        variant="h3"
+                        sx={{ fontWeight: 700, color: "white", mb: 0.5 }}
+                      >
+                        {stats.activeGoalsCount}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{ color: "rgba(255, 255, 255, 0.8)" }}
+                      >
+                        Active Goals
+                      </Typography>
+                    </Box>
+                    <PlayArrowIcon
+                      sx={{ fontSize: 48, color: "rgba(255, 255, 255, 0.3)" }}
+                    />
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+
+            <Grid item xs={12} sm={6} lg={3}>
+              <Card
+                sx={{
+                  background:
+                    "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+                  height: "100%",
+                }}
+              >
+                <CardContent>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <Box>
+                      <Typography
+                        variant="h3"
+                        sx={{ fontWeight: 700, color: "white", mb: 0.5 }}
+                      >
+                        {stats.completedGoalsCount}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{ color: "rgba(255, 255, 255, 0.8)" }}
+                      >
+                        Completed
+                      </Typography>
+                    </Box>
+                    <CheckCircleIcon
+                      sx={{ fontSize: 48, color: "rgba(255, 255, 255, 0.3)" }}
+                    />
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+
+            <Grid item xs={12} sm={6} lg={3}>
+              <Card
+                sx={{
+                  background:
+                    "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+                  height: "100%",
+                }}
+              >
+                <CardContent>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <Box>
+                      <Typography
+                        variant="h3"
+                        sx={{ fontWeight: 700, color: "white", mb: 0.5 }}
+                      >
+                        {stats.completionRate}%
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{ color: "rgba(255, 255, 255, 0.8)" }}
+                      >
+                        Success Rate
+                      </Typography>
+                    </Box>
+                    <TrendingUpIcon
+                      sx={{ fontSize: 48, color: "rgba(255, 255, 255, 0.3)" }}
+                    />
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
+
+          {/* Goals List - Full Width */}
+          <Grid container>
+            <Grid item xs={12}>
+              <Paper sx={{ p: 3, borderRadius: 3 }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    mb: 3,
+                  }}
+                >
+                  <Typography variant="h5" sx={{ fontWeight: 600 }}>
+                    Your Learning Goals
+                  </Typography>
+                  <Chip
+                    label={`${goals.length} Goals`}
+                    color="primary"
+                    size="small"
+                    sx={{ fontWeight: 500 }}
+                  />
+                </Box>
+
+                {goals.length === 0 ? (
+                  <Box
+                    sx={{
+                      textAlign: "center",
+                      py: 8,
+                      background: `linear-gradient(135deg, ${alpha(
+                        theme.palette.primary.main,
+                        0.05
+                      )} 0%, ${alpha(
+                        theme.palette.secondary.main,
+                        0.05
+                      )} 100%)`,
+                      borderRadius: 3,
+                    }}
+                  >
+                    <SchoolIcon
+                      sx={{ fontSize: 64, color: "primary.light", mb: 2 }}
+                    />
+                    <Typography
+                      variant="h6"
+                      gutterBottom
+                      sx={{ color: "text.secondary" }}
+                    >
+                      No learning goals yet
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      sx={{ color: "text.secondary", mb: 3 }}
+                    >
+                      Start your learning journey by creating your first goal!
+                    </Typography>
+                    <Button
+                      variant="contained"
+                      startIcon={<AddIcon />}
+                      onClick={() => navigate("/submit-goal")}
+                      sx={{
+                        background:
+                          "linear-gradient(45deg, #6366f1 30%, #818cf8 90%)",
+                      }}
+                    >
+                      Create Your First Goal
+                    </Button>
+                  </Box>
+                ) : (
+                  <Box
+                    sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+                  >
+                    {goals.map((goal) => (
+                      <Card
+                        key={goal._id}
+                        sx={{
+                          borderRadius: 2,
+                          transition: "all 0.3s ease",
+                          border:
+                            isOverdue(goal.targetDate) &&
+                            goal.status !== "completed"
+                              ? "2px solid #ef4444"
+                              : "1px solid transparent",
+                          "&:hover": {
+                            transform: "translateX(4px)",
+                          },
+                        }}
+                      >
+                        <CardContent sx={{ p: { xs: 2, sm: 3 } }}>
+                          <Grid container spacing={2} alignItems="center">
+                            <Grid item xs={12} lg={8}>
+                              <Box
+                                sx={{
+                                  display: "flex",
+                                  alignItems: "flex-start",
+                                  gap: 2,
+                                }}
+                              >
+                                <Avatar
+                                  sx={{
+                                    bgcolor: alpha(
+                                      statusConfig[goal.status].color,
+                                      0.1
+                                    ),
+                                    color: statusConfig[goal.status].color,
+                                    width: { xs: 40, sm: 48 },
+                                    height: { xs: 40, sm: 48 },
+                                  }}
+                                >
+                                  {React.createElement(
+                                    statusConfig[goal.status].icon
+                                  )}
+                                </Avatar>
+                                <Box sx={{ flex: 1 }}>
+                                  <Typography
+                                    variant="h6"
+                                    sx={{
+                                      fontWeight: 600,
+                                      mb: 1,
+                                      fontSize: { xs: "1rem", sm: "1.25rem" },
+                                    }}
+                                  >
+                                    {goal.description}
+                                  </Typography>
+                                  <Box
+                                    sx={{
+                                      display: "flex",
+                                      gap: 1,
+                                      flexWrap: "wrap",
+                                      mb: 1,
+                                    }}
+                                  >
+                                    <Chip
+                                      label={
+                                        categoryConfig[goal.category].label
+                                      }
+                                      size="small"
+                                      sx={{
+                                        bgcolor: alpha(
+                                          categoryConfig[goal.category].color,
+                                          0.1
+                                        ),
+                                        color:
+                                          categoryConfig[goal.category].color,
+                                        fontWeight: 500,
+                                      }}
+                                      icon={
+                                        <span style={{ marginLeft: 8 }}>
+                                          {categoryConfig[goal.category].icon}
+                                        </span>
+                                      }
+                                    />
+                                    <Chip
+                                      label={
+                                        priorityConfig[goal.priority].label
+                                      }
+                                      size="small"
+                                      sx={{
+                                        bgcolor: alpha(
+                                          priorityConfig[goal.priority].color,
+                                          0.1
+                                        ),
+                                        color:
+                                          priorityConfig[goal.priority].color,
+                                        fontWeight: 500,
+                                      }}
+                                    />
+                                    <Chip
+                                      label={statusConfig[goal.status].label}
+                                      size="small"
+                                      variant="outlined"
+                                      sx={{
+                                        borderColor:
+                                          statusConfig[goal.status].color,
+                                        color: statusConfig[goal.status].color,
+                                        fontWeight: 500,
+                                      }}
+                                    />
+                                    {goal.hasCurriculum && (
+                                      <Chip
+                                        label="AI Curriculum"
+                                        size="small"
+                                        color="secondary"
+                                        icon={
+                                          <SchoolIcon sx={{ fontSize: 16 }} />
+                                        }
+                                      />
+                                    )}
+                                  </Box>
+                                  <Box
+                                    sx={{
+                                      display: "flex",
+                                      gap: 2,
+                                      alignItems: "center",
+                                      flexDirection: {
+                                        xs: "column",
+                                        sm: "row",
+                                      },
+                                      alignItems: {
+                                        xs: "flex-start",
+                                        sm: "center",
+                                      },
+                                    }}
+                                  >
+                                    <Typography
+                                      variant="body2"
+                                      sx={{
+                                        color: "text.secondary",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: 0.5,
+                                      }}
+                                    >
+                                      <CalendarIcon sx={{ fontSize: 16 }} />
+                                      Created {formatDate(goal.createdAt)}
+                                    </Typography>
+                                    {goal.targetDate && (
+                                      <Typography
+                                        variant="body2"
+                                        sx={{
+                                          color:
+                                            isOverdue(goal.targetDate) &&
+                                            goal.status !== "completed"
+                                              ? "error.main"
+                                              : "text.secondary",
+                                          display: "flex",
+                                          alignItems: "center",
+                                          gap: 0.5,
+                                          fontWeight:
+                                            isOverdue(goal.targetDate) &&
+                                            goal.status !== "completed"
+                                              ? 600
+                                              : 400,
+                                        }}
+                                      >
+                                        <FlagIcon sx={{ fontSize: 16 }} />
+                                        Due {formatDate(goal.targetDate)}
+                                      </Typography>
+                                    )}
+                                  </Box>
+                                  {goal.progress > 0 && (
+                                    <Box sx={{ mt: 2 }}>
+                                      <Box
+                                        sx={{
+                                          display: "flex",
+                                          justifyContent: "space-between",
+                                          mb: 0.5,
+                                        }}
+                                      >
+                                        <Typography
+                                          variant="caption"
+                                          sx={{ color: "text.secondary" }}
+                                        >
+                                          Progress
+                                        </Typography>
+                                        <Typography
+                                          variant="caption"
+                                          sx={{ fontWeight: 600 }}
+                                        >
+                                          {goal.progress}%
+                                        </Typography>
+                                      </Box>
+                                      <LinearProgress
+                                        variant="determinate"
+                                        value={goal.progress}
+                                        sx={{
+                                          height: 6,
+                                          borderRadius: 3,
+                                          backgroundColor: alpha(
+                                            theme.palette.primary.main,
+                                            0.1
+                                          ),
+                                          "& .MuiLinearProgress-bar": {
+                                            borderRadius: 3,
+                                            background: `linear-gradient(45deg, ${
+                                              statusConfig[goal.status].color
+                                            } 30%, ${alpha(
+                                              statusConfig[goal.status].color,
+                                              0.7
+                                            )} 90%)`,
+                                          },
+                                        }}
+                                      />
+                                    </Box>
+                                  )}
+                                </Box>
+                              </Box>
+                            </Grid>
+                            <Grid item xs={12} lg={4}>
+                              <Box
+                                sx={{
+                                  display: "flex",
+                                  gap: 1,
+                                  justifyContent: {
+                                    xs: "flex-start",
+                                    lg: "flex-end",
+                                  },
+                                  flexWrap: "wrap",
+                                }}
+                              >
+                                {goal.hasCurriculum && (
+                                  <Tooltip title="View AI Curriculum">
+                                    <Button
+                                      size="small"
+                                      variant="contained"
+                                      onClick={() =>
+                                        handleViewCurriculum(goal._id)
+                                      }
+                                      startIcon={<MenuBookIcon />}
+                                      sx={{
+                                        background:
+                                          "linear-gradient(45deg, #f59e0b 30%, #fbbf24 90%)",
+                                        color: "white",
+                                      }}
+                                    >
+                                      Curriculum
+                                    </Button>
+                                  </Tooltip>
+                                )}
+
+                                {goal.status !== "completed" && (
+                                  <Tooltip title="Mark as completed">
+                                    <IconButton
+                                      size="small"
+                                      onClick={() =>
+                                        handleUpdateGoalStatus(
+                                          goal._id,
+                                          "completed"
+                                        )
+                                      }
+                                      sx={{
+                                        color: "success.main",
+                                        border: `1px solid ${alpha(
+                                          theme.palette.success.main,
+                                          0.3
+                                        )}`,
+                                        "&:hover": {
+                                          backgroundColor: alpha(
+                                            theme.palette.success.main,
+                                            0.1
+                                          ),
+                                        },
+                                      }}
+                                    >
+                                      <CheckCircleIcon />
+                                    </IconButton>
+                                  </Tooltip>
+                                )}
+
+                                <Tooltip title="Delete goal">
+                                  <IconButton
+                                    size="small"
+                                    onClick={() => handleDeleteGoal(goal._id)}
+                                    sx={{
+                                      color: "error.main",
+                                      border: `1px solid ${alpha(
+                                        theme.palette.error.main,
+                                        0.3
+                                      )}`,
+                                      "&:hover": {
+                                        backgroundColor: alpha(
+                                          theme.palette.error.main,
+                                          0.1
+                                        ),
+                                      },
+                                    }}
+                                  >
+                                    <DeleteIcon />
+                                  </IconButton>
+                                </Tooltip>
+                              </Box>
+                            </Grid>
+                          </Grid>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </Box>
+                )}
+              </Paper>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+    </>
+  );
+}
+
+export default Dashboard;
+
+================
+File: src/components/Goal/SubmitGoal.js
+================
+import React, { useState } from 'react';
+import {
+  Typography,
+  Container,
+  TextField,
+  Button,
+  Box,
+  Alert,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Chip,
+  Paper,
+  Grid,
+  Card,
+  CardContent,
+  IconButton,
+  Tooltip,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  CircularProgress,
+  Divider,
+  Stepper,
+  Step,
+  StepLabel,
+  StepContent,
+  InputAdornment,
+  Collapse,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  alpha
+} from '@mui/material';
+import {
+  Add as AddIcon,
+  Delete as DeleteIcon,
+  Schedule as ScheduleIcon,
+  Flag as FlagIcon,
+  Category as CategoryIcon,
+  School as SchoolIcon,
+  Close as CloseIcon,
+  Description as DescriptionIcon,
+  LocalOffer as TagIcon,
+  Notes as NotesIcon,
+  CheckCircle as CheckIcon,
+  RadioButtonUnchecked as UncheckedIcon,
+  AutoAwesome as AutoAwesomeIcon,
+  Lightbulb as LightbulbIcon,
+  TipsAndUpdates as TipsIcon
+} from '@mui/icons-material';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+function SubmitGoal() {
+  const [activeStep, setActiveStep] = useState(0);
+  const [formData, setFormData] = useState({
+    description: '',
+    priority: 'medium',
+    category: 'general',
+    targetDate: null,
+    notes: '',
+    tags: []
+  });
+  const [newTag, setNewTag] = useState('');
+  const [submissionStatus, setSubmissionStatus] = useState(null);
+  const [submissionMessage, setSubmissionMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showTips, setShowTips] = useState(true);
+  
+  // Curriculum state
+  const [curriculum, setCurriculum] = useState('');
+  const [showCurriculumDialog, setShowCurriculumDialog] = useState(false);
+  const [isGeneratingCurriculum, setIsGeneratingCurriculum] = useState(false);
+  
+  const navigate = useNavigate();
+
+  const categories = [
+    { value: 'web-development', label: 'Web Development', icon: '💻', color: '#3b82f6' },
+    { value: 'data-science', label: 'Data Science', icon: '📊', color: '#8b5cf6' },
+    { value: 'mobile-development', label: 'Mobile Development', icon: '📱', color: '#06b6d4' },
+    { value: 'devops', label: 'DevOps', icon: '⚙️', color: '#6366f1' },
+    { value: 'design', label: 'UI/UX Design', icon: '🎨', color: '#ec4899' },
+    { value: 'business', label: 'Business', icon: '💼', color: '#f59e0b' },
+    { value: 'language', label: 'Programming Language', icon: '🔤', color: '#10b981' },
+    { value: 'general', label: 'General', icon: '📚', color: '#64748b' }
+  ];
+
+  const priorities = [
+    { value: 'low', label: 'Low Priority', color: '#10b981', description: 'Learn at your own pace' },
+    { value: 'medium', label: 'Medium Priority', color: '#f59e0b', description: 'Regular focus needed' },
+    { value: 'high', label: 'High Priority', color: '#ef4444', description: 'Important for career growth' },
+    { value: 'urgent', label: 'Urgent', color: '#7c3aed', description: 'Critical deadline approaching' }
+  ];
+
+  const steps = [
+    { label: 'Define Your Goal', icon: DescriptionIcon },
+    { label: 'Set Priority & Timeline', icon: FlagIcon },
+    { label: 'Add Details', icon: NotesIcon },
+    { label: 'Review & Submit', icon: CheckIcon }
+  ];
+
+  const learningTips = [
+    "Be specific about what you want to learn - 'Master React hooks' is better than 'Learn React'",
+    "Set realistic deadlines that give you enough time to practice",
+    "Break down complex topics into smaller, manageable goals",
+    "Include why you want to learn this - it helps with motivation"
+  ];
+
+  const handleInputChange = (field) => (event) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: event.target.value
+    }));
+  };
+
+  const handleDateChange = (date) => {
+    setFormData(prev => ({
+      ...prev,
+      targetDate: date
+    }));
+  };
+
+  const handleAddTag = () => {
+    if (newTag.trim() && !formData.tags.includes(newTag.trim().toLowerCase())) {
+      setFormData(prev => ({
+        ...prev,
+        tags: [...prev.tags, newTag.trim().toLowerCase()]
+      }));
+      setNewTag('');
+    }
+  };
+
+  const handleRemoveTag = (tagToRemove) => {
+    setFormData(prev => ({
+      ...prev,
+      tags: prev.tags.filter(tag => tag !== tagToRemove)
+    }));
+  };
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const formatCurriculum = (curriculumText) => {
+    if (!curriculumText) return '';
+    
+    let formatted = curriculumText
+      .replace(/^# (.*$)/gim, '<h2 style="color: #6366f1; margin-top: 32px; margin-bottom: 20px; font-weight: 700; font-size: 1.75rem;">$1</h2>')
+      .replace(/^## (.*$)/gim, '<h3 style="color: #6366f1; margin-top: 28px; margin-bottom: 16px; font-weight: 600; font-size: 1.5rem;">$1</h3>')
+      .replace(/^### (.*$)/gim, '<h4 style="color: #6366f1; margin-top: 24px; margin-bottom: 12px; font-weight: 600; font-size: 1.25rem;">$1</h4>')
+      .replace(/\*\*(.*?)\*\*/g, '<strong style="color: #1e293b; font-weight: 600;">$1</strong>')
+      .replace(/^\* (.*$)/gim, '<li style="margin-bottom: 12px; padding-left: 8px; line-height: 1.7;">$1</li>')
+      .replace(/^- (.*$)/gim, '<li style="margin-bottom: 12px; padding-left: 8px; line-height: 1.7;">$1</li>')
+      .replace(/^\d+\. (.*$)/gim, '<li style="margin-bottom: 12px; padding-left: 8px; line-height: 1.7; list-style-type: decimal;">$1</li>');
+    
+    formatted = formatted.replace(/(<li[^>]*>.*?<\/li>\s*)+/gs, (match) => {
+      if (match.includes('list-style-type: decimal')) {
+        return '<ol style="margin: 20px 0; padding-left: 28px; background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">' + match + '</ol>';
+      } else {
+        return '<ul style="margin: 20px 0; padding-left: 28px; background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">' + match + '</ul>';
+      }
+    });
+    
+    formatted = formatted
+      .split('\n\n')
+      .map(paragraph => paragraph.trim())
+      .filter(paragraph => paragraph.length > 0)
+      .map(paragraph => {
+        if (paragraph.startsWith('<h') || paragraph.startsWith('<ul') || paragraph.startsWith('<ol')) {
+          return paragraph;
+        }
+        return `<p style="margin-bottom: 20px; line-height: 1.8; color: #475569;">${paragraph}</p>`;
+      })
+      .join('');
+    
+    return formatted;
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setIsGeneratingCurriculum(true);
+    setSubmissionStatus(null);
+
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      setSubmissionStatus('error');
+      setSubmissionMessage('Authentication token not found. Please log in again.');
+      toast.error('Authentication token not found. Please log in again.');
+      setIsSubmitting(false);
+      setIsGeneratingCurriculum(false);
+      return;
+    }
+
+    if (!formData.description.trim()) {
+      setSubmissionStatus('error');
+      setSubmissionMessage('Please provide a goal description.');
+      toast.error('Please provide a goal description.');
+      setIsSubmitting(false);
+      setIsGeneratingCurriculum(false);
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        '/api/goals',
+        {
+          description: formData.description.trim(),
+          priority: formData.priority,
+          category: formData.category,
+          targetDate: formData.targetDate,
+          notes: formData.notes.trim(),
+          tags: formData.tags
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      setSubmissionStatus('success');
+      toast.success(response.data.message || 'Goal submitted successfully!');
+      
+      if (response.data.curriculum) {
+        setCurriculum(response.data.curriculum);
+        setShowCurriculumDialog(true);
+        toast.success('🧠 AI Learning Curriculum Generated!');
+      } else {
+        toast.info('Goal saved! Curriculum generation may take a moment.');
+        setTimeout(() => {
+          navigate('/dashboard');
+        }, 2000);
+      }
+      
+      // Reset form
+      setFormData({
+        description: '',
+        priority: 'medium',
+        category: 'general',
+        targetDate: null,
+        notes: '',
+        tags: []
+      });
+      setActiveStep(0);
+
+    } catch (error) {
+      setSubmissionStatus('error');
+      const errorMessage = error.response?.data?.message || 'Failed to submit goal.';
+      setSubmissionMessage(errorMessage);
+      toast.error(errorMessage);
+      console.error('Error submitting goal:', error);
+    } finally {
+      setIsSubmitting(false);
+      setIsGeneratingCurriculum(false);
+    }
+  };
+
+  const handleCloseCurriculumDialog = () => {
+    setShowCurriculumDialog(false);
+    setTimeout(() => {
+      navigate('/dashboard');
+    }, 1000);
+  };
+
+  const getStepContent = (step) => {
+    switch (step) {
+      case 0:
+        return (
+          <Box>
+            <TextField
+              label="What do you want to learn?"
+              multiline
+              rows={4}
+              fullWidth
+              value={formData.description}
+              onChange={handleInputChange('description')}
+              required
+              placeholder="e.g., I want to learn React.js to build modern web applications with focus on hooks, state management, and best practices..."
+              helperText="Be specific about your learning goals - the AI will create a personalized curriculum based on this"
+              sx={{ mb: 3 }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start" sx={{ alignSelf: 'flex-start', mt: 1.5 }}>
+                    <LightbulbIcon sx={{ color: 'text.secondary' }} />
+                  </InputAdornment>
+                ),
+              }}
+            />
+            
+            <FormControl fullWidth>
+              <InputLabel>Category</InputLabel>
+              <Select
+                value={formData.category}
+                label="Category"
+                onChange={handleInputChange('category')}
+                startAdornment={
+                  <InputAdornment position="start">
+                    <CategoryIcon sx={{ color: 'text.secondary', mr: 1 }} />
+                  </InputAdornment>
+                }
+              >
+                {categories.map((category) => (
+                  <MenuItem key={category.value} value={category.value}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                      <span>{category.icon}</span>
+                      <Typography>{category.label}</Typography>
+                    </Box>
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Box>
+        );
+      
+      case 1:
+        return (
+          <Box>
+            <Typography variant="h6" sx={{ mb: 3, fontWeight: 600 }}>
+              How important is this goal?
+            </Typography>
+            
+            <Grid container spacing={2} sx={{ mb: 4 }}>
+              {priorities.map((priority) => (
+                <Grid item xs={12} sm={6} key={priority.value}>
+                  <Card 
+                    sx={{ 
+                      cursor: 'pointer',
+                      border: 2,
+                      borderColor: formData.priority === priority.value ? priority.color : 'transparent',
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        transform: 'translateY(-2px)',
+                        boxShadow: 3
+                      }
+                    }}
+                    onClick={() => setFormData(prev => ({ ...prev, priority: priority.value }))}
+                  >
+                    <CardContent>
+                      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1 }}>
+                        <Chip 
+                          label={priority.label}
+                          sx={{ 
+                            bgcolor: alpha(priority.color, 0.1),
+                            color: priority.color,
+                            fontWeight: 600
+                          }}
+                        />
+                        {formData.priority === priority.value && (
+                          <CheckIcon sx={{ color: priority.color }} />
+                        )}
+                      </Box>
+                      <Typography variant="body2" color="text.secondary">
+                        {priority.description}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+
+            <DatePicker
+              label="Target Completion Date (Optional)"
+              value={formData.targetDate}
+              onChange={handleDateChange}
+              minDate={new Date()}
+              sx={{ width: '100%' }}
+            />
+          </Box>
+        );
+      
+      case 2:
+        return (
+          <Box>
+            <Box sx={{ mb: 4 }}>
+              <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 600 }}>
+                Tags (Optional)
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                Add tags to organize your goals
+              </Typography>
+              
+              <Box sx={{ display: 'flex', gap: 1, mb: 2, flexWrap: 'wrap' }}>
+                {formData.tags.map((tag, index) => (
+                  <Chip
+                    key={index}
+                    label={tag}
+                    onDelete={() => handleRemoveTag(tag)}
+                    color="primary"
+                    variant="outlined"
+                    deleteIcon={<DeleteIcon />}
+                  />
+                ))}
+              </Box>
+              
+              <Box sx={{ display: 'flex', gap: 1 }}>
+                <TextField
+                  size="small"
+                  label="Add tag"
+                  value={newTag}
+                  onChange={(e) => setNewTag(e.target.value)}
+                  onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), handleAddTag())}
+                  placeholder="e.g., javascript, frontend"
+                  sx={{ flex: 1 }}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <TagIcon sx={{ color: 'text.secondary', fontSize: 20 }} />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                <IconButton
+                  onClick={handleAddTag}
+                  disabled={!newTag.trim()}
+                  color="primary"
+                  sx={{ 
+                    bgcolor: 'primary.main',
+                    color: 'white',
+                    '&:hover': { bgcolor: 'primary.dark' },
+                    '&:disabled': { bgcolor: 'action.disabledBackground' }
+                  }}
+                >
+                  <AddIcon />
+                </IconButton>
+              </Box>
+            </Box>
+
+            <TextField
+              label="Additional Notes (Optional)"
+              multiline
+              rows={3}
+              fullWidth
+              value={formData.notes}
+              onChange={handleInputChange('notes')}
+              placeholder="Any specific requirements, preferences, or context for your learning goal..."
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start" sx={{ alignSelf: 'flex-start', mt: 1.5 }}>
+                    <NotesIcon sx={{ color: 'text.secondary' }} />
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Box>
+        );
+      
+      case 3:
+        const selectedCategory = categories.find(cat => cat.value === formData.category);
+        const selectedPriority = priorities.find(pri => pri.value === formData.priority);
+        
+        return (
+          <Box>
+            <Alert 
+              severity="info" 
+              sx={{ mb: 3 }}
+              icon={<AutoAwesomeIcon />}
+            >
+              Your personalized AI curriculum will be generated after submission!
+            </Alert>
+
+            <Card sx={{ bgcolor: 'background.default' }}>
+              <CardContent>
+                <Typography variant="h6" gutterBottom sx={{ fontWeight: 600, mb: 3 }}>
+                  Goal Summary
+                </Typography>
+                
+                <List>
+                  <ListItem sx={{ px: 0 }}>
+                    <ListItemIcon>
+                      <DescriptionIcon color="primary" />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary="Learning Goal"
+                      secondary={formData.description || 'Not specified'}
+                      primaryTypographyProps={{ fontWeight: 600 }}
+                    />
+                  </ListItem>
+                  
+                  <ListItem sx={{ px: 0 }}>
+                    <ListItemIcon>
+                      <CategoryIcon color="primary" />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary="Category"
+                      secondary={
+                        <Chip
+                          label={selectedCategory?.label}
+                          size="small"
+                          sx={{ 
+                            bgcolor: alpha(selectedCategory?.color || '#000', 0.1),
+                            color: selectedCategory?.color
+                          }}
+                          icon={<span style={{ marginLeft: 8 }}>{selectedCategory?.icon}</span>}
+                        />
+                      }
+                      primaryTypographyProps={{ fontWeight: 600 }}
+                    />
+                  </ListItem>
+                  
+                  <ListItem sx={{ px: 0 }}>
+                    <ListItemIcon>
+                      <FlagIcon color="primary" />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary="Priority"
+                      secondary={
+                        <Chip
+                          label={selectedPriority?.label}
+                          size="small"
+                          sx={{ 
+                            bgcolor: alpha(selectedPriority?.color || '#000', 0.1),
+                            color: selectedPriority?.color
+                          }}
+                        />
+                      }
+                      primaryTypographyProps={{ fontWeight: 600 }}
+                    />
+                  </ListItem>
+                  
+                  {formData.targetDate && (
+                    <ListItem sx={{ px: 0 }}>
+                      <ListItemIcon>
+                        <ScheduleIcon color="primary" />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary="Target Date"
+                        secondary={formData.targetDate.toLocaleDateString('en-US', {
+                          weekday: 'long',
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric'
+                        })}
+                        primaryTypographyProps={{ fontWeight: 600 }}
+                      />
+                    </ListItem>
+                  )}
+                  
+                  {formData.tags.length > 0 && (
+                    <ListItem sx={{ px: 0 }}>
+                      <ListItemIcon>
+                        <TagIcon color="primary" />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary="Tags"
+                        secondary={
+                          <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap', mt: 0.5 }}>
+                            {formData.tags.map((tag, index) => (
+                              <Chip key={index} label={tag} size="small" variant="outlined" />
+                            ))}
+                          </Box>
+                        }
+                        primaryTypographyProps={{ fontWeight: 600 }}
+                      />
+                    </ListItem>
+                  )}
+                </List>
+              </CardContent>
+            </Card>
+          </Box>
+        );
+      
+      default:
+        return 'Unknown step';
+    }
+  };
+
+  return (
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <Container maxWidth="md">
+        <ToastContainer position="top-right" />
+        
+        {/* Header */}
+        <Box sx={{ mb: 4 }}>
+          <Typography variant="h3" gutterBottom sx={{ fontWeight: 700 }}>
+            Create Your Learning Goal
+          </Typography>
+          <Typography variant="h6" sx={{ color: 'text.secondary' }}>
+            Define what you want to learn and let AI create your personalized curriculum
+          </Typography>
+        </Box>
+
+        {/* Tips Section */}
+        <Collapse in={showTips}>
+          <Paper sx={{ p: 3, mb: 4, bgcolor: alpha('#6366f1', 0.05), border: `1px solid ${alpha('#6366f1', 0.2)}` }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                <TipsIcon sx={{ color: 'primary.main' }} />
+                <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
+                  Tips for Better Results
+                </Typography>
+              </Box>
+              <IconButton size="small" onClick={() => setShowTips(false)}>
+                <CloseIcon fontSize="small" />
+              </IconButton>
+            </Box>
+            <List dense>
+              {learningTips.map((tip, index) => (
+                <ListItem key={index} sx={{ py: 0.5 }}>
+                  <ListItemIcon sx={{ minWidth: 32 }}>
+                    <CheckIcon sx={{ fontSize: 16, color: 'primary.main' }} />
+                  </ListItemIcon>
+                  <ListItemText primary={tip} />
+                </ListItem>
+              ))}
+            </List>
+          </Paper>
+        </Collapse>
+
+        {submissionStatus === 'error' && (
+          <Alert severity="error" sx={{ mb: 3 }}>
+            {submissionMessage}
+          </Alert>
+        )}
+
+        {/* Stepper */}
+        <Paper elevation={0} sx={{ p: 3, borderRadius: 3 }}>
+          <Stepper activeStep={activeStep} orientation="vertical">
+            {steps.map((step, index) => (
+              <Step key={step.label}>
+                <StepLabel
+                  StepIconComponent={() => (
+                    <Box
+                      sx={{
+                        width: 40,
+                        height: 40,
+                        borderRadius: '50%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        bgcolor: activeStep >= index ? 'primary.main' : 'action.disabledBackground',
+                        color: 'white',
+                        transition: 'all 0.3s ease'
+                      }}
+                    >
+                      {React.createElement(step.icon, { fontSize: 'small' })}
+                    </Box>
+                  )}
+                >
+                  <Typography variant="h6" sx={{ fontWeight: activeStep === index ? 600 : 400 }}>
+                    {step.label}
+                  </Typography>
+                </StepLabel>
+                <StepContent>
+                  <Box sx={{ mt: 2, mb: 3 }}>
+                    {getStepContent(index)}
+                  </Box>
+                  <Box sx={{ display: 'flex', gap: 2 }}>
+                    {index > 0 && (
+                      <Button
+                        variant="outlined"
+                        onClick={handleBack}
+                        disabled={isSubmitting}
+                      >
+                        Back
+                      </Button>
+                    )}
+                    {index < steps.length - 1 ? (
+                      <Button
+                        variant="contained"
+                        onClick={handleNext}
+                        disabled={index === 0 && !formData.description.trim()}
+                      >
+                        Continue
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="contained"
+                        onClick={handleSubmit}
+                        disabled={isSubmitting || !formData.description.trim()}
+                        sx={{ 
+                          minWidth: 200,
+                          background: 'linear-gradient(45deg, #6366f1 30%, #818cf8 90%)',
+                          boxShadow: '0 3px 5px 2px rgba(99, 102, 241, .3)',
+                        }}
+                        startIcon={isSubmitting ? <CircularProgress size={20} color="inherit" /> : <SchoolIcon />}
+                      >
+                        {isSubmitting ? 'Generating AI Curriculum...' : 'Submit & Generate Curriculum'}
+                      </Button>
+                    )}
+                    {index === steps.length - 1 && (
+                      <Button
+                        variant="outlined"
+                        onClick={() => navigate('/dashboard')}
+                        disabled={isSubmitting}
+                      >
+                        Cancel
+                      </Button>
+                    )}
+                  </Box>
+                </StepContent>
+              </Step>
+            ))}
+          </Stepper>
+        </Paper>
+
+        {/* Curriculum Dialog */}
+        <Dialog
+          open={showCurriculumDialog}
+          onClose={handleCloseCurriculumDialog}
+          maxWidth="lg"
+          fullWidth
+          scroll="paper"
+          PaperProps={{
+            sx: { 
+              maxHeight: '90vh',
+              borderRadius: 3
+            }
+          }}
+        >
+          <DialogTitle sx={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'space-between',
+            pb: 2,
+            borderBottom: '1px solid',
+            borderColor: 'divider'
+          }}>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <SchoolIcon sx={{ mr: 2, color: 'primary.main', fontSize: 32 }} />
+              <Box>
+                <Typography variant="h5" sx={{ fontWeight: 600 }}>
+                  Your AI-Generated Learning Curriculum
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Personalized learning path created just for you
+                </Typography>
+              </Box>
+            </Box>
+            <IconButton onClick={handleCloseCurriculumDialog}>
+              <CloseIcon />
+            </IconButton>
+          </DialogTitle>
+          <DialogContent sx={{ p: 4 }}>
+            {curriculum ? (
+              <Box
+                sx={{
+                  '& h2': { 
+                    color: 'primary.main', 
+                    borderBottom: '2px solid',
+                    borderColor: 'divider',
+                    paddingBottom: '12px',
+                    marginBottom: '20px' 
+                  },
+                  '& h3': { 
+                    color: 'primary.dark',
+                    marginTop: '32px',
+                    marginBottom: '16px'
+                  },
+                  '& h4': { 
+                    color: 'primary.main',
+                    marginTop: '24px',
+                    marginBottom: '12px'
+                  },
+                  '& p': { 
+                    marginBottom: '20px',
+                    lineHeight: 1.8 
+                  },
+                  '& ul, & ol': { 
+                    marginBottom: '20px',
+                    paddingLeft: '28px',
+                    background: '#f8fafc',
+                    padding: '20px',
+                    borderRadius: '12px',
+                    border: '1px solid #e2e8f0'
+                  },
+                  '& li': { 
+                    marginBottom: '12px',
+                    lineHeight: 1.7
+                  },
+                  '& strong': {
+                    color: 'text.primary',
+                    fontWeight: 600
+                  }
+                }}
+                dangerouslySetInnerHTML={{ 
+                  __html: formatCurriculum(curriculum) 
+                }}
+              />
+            ) : (
+              <Box sx={{ textAlign: 'center', py: 8 }}>
+                <CircularProgress size={48} />
+                <Typography variant="h6" sx={{ mt: 3 }}>
+                  Generating your personalized curriculum...
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                  This may take 15-30 seconds
+                </Typography>
+              </Box>
+            )}
+          </DialogContent>
+          <DialogActions sx={{ p: 3, borderTop: '1px solid', borderColor: 'divider' }}>
+            <Button 
+              onClick={handleCloseCurriculumDialog} 
+              color="primary"
+              variant="outlined"
+              size="large"
+            >
+              Close
+            </Button>
+            <Button 
+              variant="contained" 
+              onClick={() => navigate('/dashboard')}
+              color="primary"
+              size="large"
+              sx={{ 
+                background: 'linear-gradient(45deg, #6366f1 30%, #818cf8 90%)',
+                boxShadow: '0 3px 5px 2px rgba(99, 102, 241, .3)',
+              }}
+            >
+              Go to Dashboard
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </Container>
+    </LocalizationProvider>
+  );
+}
+
+export default SubmitGoal;
+
+================
+File: src/components/Layout/Navigation.js
+================
+import React, { useState, useEffect } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
+  Menu,
+  MenuItem,
+  Avatar,
+  Box,
+  Chip,
+  Container,
+  Tooltip,
+  useScrollTrigger,
+  Slide,
+} from "@mui/material";
+import {
+  AccountCircle,
+  Dashboard as DashboardIcon,
+  Add as AddIcon,
+  ExitToApp,
+  Settings,
+  School as SchoolIcon,
+  Notifications as NotificationsIcon,
+} from "@mui/icons-material";
+import { useNavigate, useLocation } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+
+function HideOnScroll({ children }) {
+  const trigger = useScrollTrigger();
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
+
+function Navigation() {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      try {
+        const decoded = jwtDecode(token);
+        setUser({
+          name: decoded.name,
+          id: decoded.userId,
+        });
+      } catch (error) {
+        console.error("Invalid token:", error);
+        localStorage.removeItem("token");
+      }
+    }
+  }, []);
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+    navigate("/login");
+    handleClose();
+  };
+
+  const handleNavigation = (path) => {
+    navigate(path);
+    handleClose();
+  };
+
+  const isActive = (path) => location.pathname === path;
+
+  // Routes that should have full-width navigation
+  const isFullWidthRoute = ["/dashboard", "/curriculum"].some(
+    (route) =>
+      location.pathname === route || location.pathname.startsWith(route + "/")
+  );
+
+  if (!user) {
+    return null;
+  }
+
+  return (
+    <HideOnScroll>
+      <AppBar
+        position="sticky"
+        sx={{
+          background: "rgba(255, 255, 255, 0.9)",
+          backdropFilter: "blur(10px)",
+          borderBottom: "1px solid rgba(0, 0, 0, 0.05)",
+          boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.1)",
+          color: "text.primary",
+          width: "100%",
+          left: 0,
+          right: 0,
+        }}
+      >
+        {isFullWidthRoute ? (
+          // Full-width navigation for dashboard and curriculum
+          <Box
+            sx={{
+              width: "100%",
+              px: { xs: 2, sm: 3, md: 4, lg: 6 }, // Responsive padding
+              py: 1,
+            }}
+          >
+            <Toolbar
+              disableGutters
+              sx={{
+                py: 1,
+                justifyContent: "space-between",
+                minHeight: { xs: 56, sm: 64 },
+                width: "100%",
+              }}
+            >
+              {/* Logo and Brand */}
+              <Box
+                sx={{ display: "flex", alignItems: "center", flexShrink: 0 }}
+              >
+                <SchoolIcon
+                  sx={{ mr: 1.5, fontSize: 32, color: "primary.main" }}
+                />
+                <Box sx={{ display: { xs: "none", sm: "block" } }}>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: 700,
+                      background:
+                        "linear-gradient(45deg, #6366f1 30%, #f59e0b 90%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      lineHeight: 1,
+                    }}
+                  >
+                    Neural Nexus
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{ color: "text.secondary", lineHeight: 1 }}
+                  >
+                    AI-Powered Learning
+                  </Typography>
+                </Box>
+                {/* Mobile brand text */}
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: 700,
+                    background:
+                      "linear-gradient(45deg, #6366f1 30%, #f59e0b 90%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    display: { xs: "block", sm: "none" },
+                  }}
+                >
+                  Neural Nexus
+                </Typography>
+              </Box>
+
+              {/* Center Navigation */}
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: { xs: 0.5, sm: 1 },
+                  mx: { xs: 1, sm: 4 },
+                  flex: 1,
+                  justifyContent: { xs: "flex-end", md: "flex-start" },
+                  maxWidth: { xs: "none", md: "400px" },
+                }}
+              >
+                <Button
+                  startIcon={
+                    <DashboardIcon
+                      sx={{ display: { xs: "none", sm: "block" } }}
+                    />
+                  }
+                  onClick={() => navigate("/dashboard")}
+                  size={window.innerWidth < 600 ? "small" : "medium"}
+                  sx={{
+                    color: isActive("/dashboard")
+                      ? "primary.main"
+                      : "text.primary",
+                    backgroundColor: isActive("/dashboard")
+                      ? "primary.light"
+                      : "transparent",
+                    bgcolor: isActive("/dashboard")
+                      ? "rgba(99, 102, 241, 0.1)"
+                      : "transparent",
+                    fontWeight: isActive("/dashboard") ? 600 : 500,
+                    minWidth: { xs: "auto", sm: "auto" },
+                    px: { xs: 1, sm: 2 },
+                    "&:hover": {
+                      backgroundColor: "rgba(99, 102, 241, 0.08)",
+                    },
+                  }}
+                >
+                  <Box sx={{ display: { xs: "none", sm: "block" } }}>
+                    Dashboard
+                  </Box>
+                  <DashboardIcon
+                    sx={{ display: { xs: "block", sm: "none" } }}
+                  />
+                </Button>
+
+                <Button
+                  startIcon={
+                    <AddIcon sx={{ display: { xs: "none", sm: "block" } }} />
+                  }
+                  onClick={() => navigate("/submit-goal")}
+                  size={window.innerWidth < 600 ? "small" : "medium"}
+                  sx={{
+                    color: isActive("/submit-goal")
+                      ? "primary.main"
+                      : "text.primary",
+                    bgcolor: isActive("/submit-goal")
+                      ? "rgba(99, 102, 241, 0.1)"
+                      : "transparent",
+                    fontWeight: isActive("/submit-goal") ? 600 : 500,
+                    minWidth: { xs: "auto", sm: "auto" },
+                    px: { xs: 1, sm: 2 },
+                    "&:hover": {
+                      backgroundColor: "rgba(99, 102, 241, 0.08)",
+                    },
+                  }}
+                >
+                  <Box sx={{ display: { xs: "none", sm: "block" } }}>
+                    New Goal
+                  </Box>
+                  <AddIcon sx={{ display: { xs: "block", sm: "none" } }} />
+                </Button>
+              </Box>
+
+              {/* Right Side Items */}
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: { xs: 1, sm: 2 },
+                  flexShrink: 0,
+                }}
+              >
+                {/* Notifications - Hidden on mobile */}
+                <Tooltip title="Notifications">
+                  <IconButton
+                    sx={{
+                      color: "text.secondary",
+                      display: { xs: "none", sm: "flex" },
+                    }}
+                  >
+                    <NotificationsIcon />
+                  </IconButton>
+                </Tooltip>
+
+                {/* User Menu */}
+                <Chip
+                  avatar={
+                    <Avatar
+                      sx={{
+                        bgcolor: "primary.main",
+                        width: { xs: 28, sm: 32 },
+                        height: { xs: 28, sm: 32 },
+                      }}
+                    >
+                      {user.name.charAt(0).toUpperCase()}
+                    </Avatar>
+                  }
+                  label={
+                    <Box sx={{ display: { xs: "none", sm: "block" } }}>
+                      {user.name}
+                    </Box>
+                  }
+                  onClick={handleMenu}
+                  sx={{
+                    fontSize: "0.875rem",
+                    fontWeight: 500,
+                    cursor: "pointer",
+                    "&:hover": {
+                      backgroundColor: "rgba(0, 0, 0, 0.04)",
+                    },
+                    "& .MuiChip-label": {
+                      px: { xs: 0, sm: 1 },
+                    },
+                  }}
+                />
+
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorEl}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorEl)}
+                  onClose={handleClose}
+                  PaperProps={{
+                    sx: {
+                      mt: 1.5,
+                      minWidth: 200,
+                      borderRadius: 2,
+                      boxShadow:
+                        "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+                    },
+                  }}
+                >
+                  <MenuItem
+                    onClick={() => handleNavigation("/profile")}
+                    sx={{ py: 1.5 }}
+                  >
+                    <Settings sx={{ mr: 2, fontSize: 20 }} />
+                    Profile & Settings
+                  </MenuItem>
+                  <MenuItem
+                    onClick={handleLogout}
+                    sx={{ py: 1.5, color: "error.main" }}
+                  >
+                    <ExitToApp sx={{ mr: 2, fontSize: 20 }} />
+                    Logout
+                  </MenuItem>
+                </Menu>
+              </Box>
+            </Toolbar>
+          </Box>
+        ) : (
+          // Constrained navigation for forms and other pages
+          <Container maxWidth="xl">
+            <Toolbar disableGutters sx={{ py: 1 }}>
+              {/* Logo and Brand */}
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  flexGrow: 0,
+                  mr: 4,
+                }}
+              >
+                <SchoolIcon
+                  sx={{ mr: 1.5, fontSize: 32, color: "primary.main" }}
+                />
+                <Box>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: 700,
+                      background:
+                        "linear-gradient(45deg, #6366f1 30%, #f59e0b 90%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      lineHeight: 1,
+                    }}
+                  >
+                    Neural Nexus
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{ color: "text.secondary", lineHeight: 1 }}
+                  >
+                    AI-Powered Learning
+                  </Typography>
+                </Box>
+              </Box>
+
+              {/* Center Navigation */}
+              <Box sx={{ flexGrow: 1, display: "flex", gap: 1, ml: 4 }}>
+                <Button
+                  startIcon={<DashboardIcon />}
+                  onClick={() => navigate("/dashboard")}
+                  sx={{
+                    color: isActive("/dashboard")
+                      ? "primary.main"
+                      : "text.primary",
+                    backgroundColor: isActive("/dashboard")
+                      ? "primary.light"
+                      : "transparent",
+                    bgcolor: isActive("/dashboard")
+                      ? "rgba(99, 102, 241, 0.1)"
+                      : "transparent",
+                    fontWeight: isActive("/dashboard") ? 600 : 500,
+                    "&:hover": {
+                      backgroundColor: "rgba(99, 102, 241, 0.08)",
+                    },
+                  }}
+                >
+                  Dashboard
+                </Button>
+
+                <Button
+                  startIcon={<AddIcon />}
+                  onClick={() => navigate("/submit-goal")}
+                  sx={{
+                    color: isActive("/submit-goal")
+                      ? "primary.main"
+                      : "text.primary",
+                    bgcolor: isActive("/submit-goal")
+                      ? "rgba(99, 102, 241, 0.1)"
+                      : "transparent",
+                    fontWeight: isActive("/submit-goal") ? 600 : 500,
+                    "&:hover": {
+                      backgroundColor: "rgba(99, 102, 241, 0.08)",
+                    },
+                  }}
+                >
+                  New Goal
+                </Button>
+              </Box>
+
+              {/* Right Side Items */}
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                {/* Notifications */}
+                <Tooltip title="Notifications">
+                  <IconButton sx={{ color: "text.secondary" }}>
+                    <NotificationsIcon />
+                  </IconButton>
+                </Tooltip>
+
+                {/* User Menu */}
+                <Chip
+                  avatar={
+                    <Avatar
+                      sx={{
+                        bgcolor: "primary.main",
+                        width: 32,
+                        height: 32,
+                      }}
+                    >
+                      {user.name.charAt(0).toUpperCase()}
+                    </Avatar>
+                  }
+                  label={user.name}
+                  onClick={handleMenu}
+                  sx={{
+                    fontSize: "0.875rem",
+                    fontWeight: 500,
+                    cursor: "pointer",
+                    "&:hover": {
+                      backgroundColor: "rgba(0, 0, 0, 0.04)",
+                    },
+                  }}
+                />
+
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorEl}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorEl)}
+                  onClose={handleClose}
+                  PaperProps={{
+                    sx: {
+                      mt: 1.5,
+                      minWidth: 200,
+                      borderRadius: 2,
+                      boxShadow:
+                        "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+                    },
+                  }}
+                >
+                  <MenuItem
+                    onClick={() => handleNavigation("/profile")}
+                    sx={{ py: 1.5 }}
+                  >
+                    <Settings sx={{ mr: 2, fontSize: 20 }} />
+                    Profile & Settings
+                  </MenuItem>
+                  <MenuItem
+                    onClick={handleLogout}
+                    sx={{ py: 1.5, color: "error.main" }}
+                  >
+                    <ExitToApp sx={{ mr: 2, fontSize: 20 }} />
+                    Logout
+                  </MenuItem>
+                </Menu>
+              </Box>
+            </Toolbar>
+          </Container>
+        )}
+      </AppBar>
+    </HideOnScroll>
+  );
+}
+
+export default Navigation;
+
+================
+File: src/components/User/UserProfile.js
+================
+// frontend/src/components/User/UserProfile.js
+import React, { useState, useEffect } from 'react';
+import {
+  Container,
+  Paper,
+  Typography,
+  Box,
+  Grid,
+  Card,
+  CardContent,
+  TextField,
+  Button,
+  Avatar,
+  Alert,
+  CircularProgress,
+  Tab,
+  Tabs,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+} from '@mui/material';
+import {
+  Person as PersonIcon,
+  Email as EmailIcon,
+  Security as SecurityIcon,
+  Edit as EditIcon,
+  Save as SaveIcon,
+  Cancel as CancelIcon
+} from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+function UserProfile() {
+  const [activeTab, setActiveTab] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
+  const [stats, setStats] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [isChangingPassword, setIsChangingPassword] = useState(false);
+  
+  const [profileForm, setProfileForm] = useState({
+    name: '',
+    email: ''
+  });
+  
+  const [passwordForm, setPasswordForm] = useState({
+    currentPassword: '',
+    newPassword: '',
+    confirmPassword: ''
+  });
+  
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  const categoryLabels = {
+    'web-development': 'Web Development',
+    'data-science': 'Data Science',
+    'mobile-development': 'Mobile Development',
+    'devops': 'DevOps',
+    'design': 'UI/UX Design',
+    'business': 'Business',
+    'language': 'Programming Language',
+    'general': 'General'
+  };
+
+  const statusLabels = {
+    pending: 'Pending',
+    'in-progress': 'In Progress',
+    completed: 'Completed',
+    paused: 'Paused'
+  };
+
+  const statusColors = {
+    pending: '#757575',
+    'in-progress': '#2196f3',
+    completed: '#4caf50',
+    paused: '#ff9800'
+  };
+
+  useEffect(() => {
+    fetchUserProfile();
+  }, []);
+
+  const fetchUserProfile = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.get('/api/user/profile', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      
+      const { user, stats } = response.data.data;
+      setUser(user);
+      setStats(stats);
+      setProfileForm({
+        name: user.name,
+        email: user.email
+      });
+    } catch (error) {
+      console.error('Error fetching profile:', error);
+      setError('Failed to load profile data');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleTabChange = (event, newValue) => {
+    setActiveTab(newValue);
+    setError('');
+  };
+
+  const handleProfileInputChange = (field) => (event) => {
+    setProfileForm(prev => ({
+      ...prev,
+      [field]: event.target.value
+    }));
+  };
+
+  const handlePasswordInputChange = (field) => (event) => {
+    setPasswordForm(prev => ({
+      ...prev,
+      [field]: event.target.value
+    }));
+  };
+
+  const handleUpdateProfile = async () => {
+    if (!profileForm.name.trim() || !profileForm.email.trim()) {
+      setError('Name and email are required');
+      return;
+    }
+
+    setIsUpdating(true);
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.put('/api/user/profile', profileForm, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      
+      setUser(response.data.data.user);
+      setIsEditing(false);
+      toast.success('Profile updated successfully');
+    } catch (error) {
+      const errorMessage = error.response?.data?.message || 'Failed to update profile';
+      setError(errorMessage);
+      toast.error(errorMessage);
+    } finally {
+      setIsUpdating(false);
+    }
+  };
+
+  const handleChangePassword = async () => {
+    if (!passwordForm.currentPassword || !passwordForm.newPassword || !passwordForm.confirmPassword) {
+      setError('All password fields are required');
+      return;
+    }
+
+    if (passwordForm.newPassword !== passwordForm.confirmPassword) {
+      setError('New passwords do not match');
+      return;
+    }
+
+    if (passwordForm.newPassword.length < 6) {
+      setError('New password must be at least 6 characters');
+      return;
+    }
+
+    setIsChangingPassword(true);
+    try {
+      const token = localStorage.getItem('token');
+      await axios.put('/api/user/change-password', {
+        currentPassword: passwordForm.currentPassword,
+        newPassword: passwordForm.newPassword
+      }, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      
+      setPasswordForm({
+        currentPassword: '',
+        newPassword: '',
+        confirmPassword: ''
+      });
+      toast.success('Password changed successfully');
+    } catch (error) {
+      const errorMessage = error.response?.data?.message || 'Failed to change password';
+      setError(errorMessage);
+      toast.error(errorMessage);
+    } finally {
+      setIsChangingPassword(false);
+    }
+  };
+
+  const handleCancelEdit = () => {
+    setIsEditing(false);
+    setProfileForm({
+      name: user.name,
+      email: user.email
+    });
+    setError('');
+  };
+
+  if (loading) {
+    return (
+      <Container maxWidth="md" sx={{ mt: 4, display: 'flex', justifyContent: 'center' }}>
+        <CircularProgress />
+      </Container>
+    );
+  }
+
+  return (
+    <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
+      <ToastContainer />
+      
+      {/* Header */}
+      <Box sx={{ mb: 4 }}>
+        <Typography variant="h4" gutterBottom sx={{ fontWeight: 'bold' }}>
+          Profile & Settings
+        </Typography>
+        <Typography variant="body1" color="text.secondary">
+          Manage your account and view your learning statistics
+        </Typography>
+      </Box>
+
+      <Paper sx={{ width: '100%' }}>
+        {/* Tabs */}
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Tabs value={activeTab} onChange={handleTabChange}>
+            <Tab label="Profile" />
+            <Tab label="Security" />
+            <Tab label="Statistics" />
+          </Tabs>
+        </Box>
+
+        {error && (
+          <Alert severity="error" sx={{ m: 3 }}>
+            {error}
+          </Alert>
+        )}
+
+        {/* Profile Tab */}
+        {activeTab === 0 && (
+          <Box sx={{ p: 3 }}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={4}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <Avatar
+                    sx={{ 
+                      width: 100, 
+                      height: 100, 
+                      bgcolor: 'primary.main',
+                      fontSize: '2rem',
+                      mb: 2
+                    }}
+                  >
+                    {user?.name?.charAt(0).toUpperCase()}
+                  </Avatar>
+                  <Typography variant="h6" gutterBottom>
+                    {user?.name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {user?.email}
+                  </Typography>
+                </Box>
+              </Grid>
+              
+              <Grid item xs={12} md={8}>
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+                  <Typography variant="h6">
+                    Profile Information
+                  </Typography>
+                  {!isEditing ? (
+                    <Button
+                      startIcon={<EditIcon />}
+                      onClick={() => setIsEditing(true)}
+                    >
+                      Edit Profile
+                    </Button>
+                  ) : (
+                    <Box sx={{ display: 'flex', gap: 1 }}>
+                      <Button
+                        startIcon={<SaveIcon />}
+                        variant="contained"
+                        onClick={handleUpdateProfile}
+                        disabled={isUpdating}
+                      >
+                        {isUpdating ? 'Saving...' : 'Save'}
+                      </Button>
+                      <Button
+                        startIcon={<CancelIcon />}
+                        onClick={handleCancelEdit}
+                      >
+                        Cancel
+                      </Button>
+                    </Box>
+                  )}
+                </Box>
+
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <TextField
+                      fullWidth
+                      label="Full Name"
+                      value={profileForm.name}
+                      onChange={handleProfileInputChange('name')}
+                      disabled={!isEditing}
+                      InputProps={{
+                        startAdornment: <PersonIcon sx={{ mr: 1, color: 'text.secondary' }} />
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      fullWidth
+                      label="Email Address"
+                      type="email"
+                      value={profileForm.email}
+                      onChange={handleProfileInputChange('email')}
+                      disabled={!isEditing}
+                      InputProps={{
+                        startAdornment: <EmailIcon sx={{ mr: 1, color: 'text.secondary' }} />
+                      }}
+                    />
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Box>
+        )}
+
+        {/* Security Tab */}
+        {activeTab === 1 && (
+          <Box sx={{ p: 3 }}>
+            <Typography variant="h6" gutterBottom>
+              Change Password
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
+              Keep your account secure by using a strong password
+            </Typography>
+
+            <Grid container spacing={2} sx={{ maxWidth: 500 }}>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  label="Current Password"
+                  type="password"
+                  value={passwordForm.currentPassword}
+                  onChange={handlePasswordInputChange('currentPassword')}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  label="New Password"
+                  type="password"
+                  value={passwordForm.newPassword}
+                  onChange={handlePasswordInputChange('newPassword')}
+                  helperText="Must be at least 6 characters"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  label="Confirm New Password"
+                  type="password"
+                  value={passwordForm.confirmPassword}
+                  onChange={handlePasswordInputChange('confirmPassword')}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Button
+                  variant="contained"
+                  startIcon={<SecurityIcon />}
+                  onClick={handleChangePassword}
+                  disabled={isChangingPassword}
+                >
+                  {isChangingPassword ? 'Changing...' : 'Change Password'}
+                </Button>
+              </Grid>
+            </Grid>
+          </Box>
+        )}
+
+        {/* Statistics Tab */}
+        {activeTab === 2 && stats && (
+          <Box sx={{ p: 3 }}>
+            <Typography variant="h6" gutterBottom>
+              Learning Statistics
+            </Typography>
+            
+            <Grid container spacing={3}>
+              {/* Goal Status Overview */}
+              <Grid item xs={12} md={6}>
+                <Card variant="outlined">
+                  <CardContent>
+                    <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 'bold' }}>
+                      Goals by Status
+                    </Typography>
+                    <List dense>
+                      {Object.entries(stats).filter(([key]) => key !== 'total').map(([status, count]) => (
+                        <ListItem key={status} sx={{ px: 0 }}>
+                          <ListItemIcon sx={{ minWidth: 40 }}>
+                            <Box
+                              sx={{
+                                width: 12,
+                                height: 12,
+                                borderRadius: '50%',
+                                backgroundColor: statusColors[status]
+                              }}
+                            />
+                          </ListItemIcon>
+                          <ListItemText
+                            primary={statusLabels[status]}
+                            secondary={`${count} goals`}
+                          />
+                        </ListItem>
+                      ))}
+                    </List>
+                  </CardContent>
+                </Card>
+              </Grid>
+
+              {/* Summary Card */}
+              <Grid item xs={12} md={6}>
+                <Card variant="outlined">
+                  <CardContent>
+                    <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 'bold' }}>
+                      Summary
+                    </Typography>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <Typography variant="body2">Total Goals:</Typography>
+                        <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                          {stats.total}
+                        </Typography>
+                      </Box>
+                      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <Typography variant="body2">Completion Rate:</Typography>
+                        <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                          {stats.total > 0 ? Math.round((stats.completed / stats.total) * 100) : 0}%
+                        </Typography>
+                      </Box>
+                      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <Typography variant="body2">Active Goals:</Typography>
+                        <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                          {stats['in-progress'] + stats.pending}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </CardContent>
+                </Card>
+              </Grid>
+            </Grid>
+
+            <Box sx={{ mt: 3, textAlign: 'center' }}>
+              <Button
+                variant="outlined"
+                onClick={() => navigate('/dashboard')}
+              >
+                Back to Dashboard
+              </Button>
+            </Box>
+          </Box>
+        )}
+      </Paper>
+    </Container>
+  );
+}
+
+export default UserProfile;
+
+================
+File: src/index.css
+================
+/* Neural Nexus - Complete CSS with Full-Width Layout System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* === BASE STYLES === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+  color: #1e293b;
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* === FULL-WIDTH LAYOUT UTILITIES === */
+
+/* Primary full-width utility - breaks out of any container */
+.full-width {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  position: relative;
+}
+
+/* Full-width without viewport overflow issues */
+.full-width-no-overflow {
+  width: 100%;
+  max-width: 100vw;
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+}
+
+/* Container that ignores MUI maxWidth constraints */
+.container-full {
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: none !important;
+}
+
+/* Constrained content within full-width containers */
+.container-constrained {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Responsive full-width system with smart padding */
+.responsive-full {
+  width: 100%;
+  max-width: none;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 600px) {
+  .responsive-full {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 900px) {
+  .responsive-full {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .responsive-full {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .responsive-full {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+
+/* Full-width navigation */
+.nav-full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* Full-width hero sections */
+.hero-full-width {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: 64px 0;
+  position: relative;
+}
+
+/* Prevent horizontal scrollbar globally */
+.no-horizontal-scroll {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Full-width cards with inner content constraints */
+.card-full-width {
+  width: 100%;
+  max-width: none;
+}
+
+.card-full-width .card-content-constrained {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Utility for breaking out of containers */
+.breakout {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* Responsive breakout with safe padding */
+.breakout-safe {
+  width: calc(100vw - 32px);
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: calc(-50vw + 16px);
+  margin-right: calc(-50vw + 16px);
+}
+
+@media (min-width: 600px) {
+  .breakout-safe {
+    width: calc(100vw - 48px);
+    margin-left: calc(-50vw + 24px);
+    margin-right: calc(-50vw + 24px);
+  }
+}
+
+@media (min-width: 900px) {
+  .breakout-safe {
+    width: calc(100vw - 64px);
+    margin-left: calc(-50vw + 32px);
+    margin-right: calc(-50vw + 32px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .breakout-safe {
+    width: calc(100vw - 96px);
+    margin-left: calc(-50vw + 48px);
+    margin-right: calc(-50vw + 48px);
+  }
+}
+
+/* === RESPONSIVE UTILITIES === */
+
+/* Responsive visibility */
+@media (max-width: 599px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 600px) {
+  .hide-on-desktop {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hide-on-tablet-down {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .hide-on-tablet-up {
+    display: none !important;
+  }
+}
+
+/* Responsive typography */
+@media (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .responsive-text-small {
+    font-size: 0.875rem;
+  }
+  
+  .responsive-text-base {
+    font-size: 1rem;
+  }
+  
+  .responsive-text-large {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 601px) {
+  .responsive-text-small {
+    font-size: 1rem;
+  }
+  
+  .responsive-text-base {
+    font-size: 1.125rem;
+  }
+  
+  .responsive-text-large {
+    font-size: 1.25rem;
+  }
+}
+
+/* === ENHANCED SCROLLBAR STYLES === */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Custom scrollbar for curriculum viewer */
+.curriculum-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.curriculum-content::-webkit-scrollbar-track {
+  background: #f8fafc;
+  border-radius: 4px;
+}
+
+.curriculum-content::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.curriculum-content::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* === ENHANCED LINK STYLES === */
+a {
+  color: #6366f1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #4f46e5;
+}
+
+a:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* === FOCUS AND SELECTION STYLES === */
+*:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: #6366f1;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: #6366f1;
+  color: white;
+}
+
+/* === ANIMATIONS === */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInFromLeft 0.5s ease-out;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Progress bar animations */
+@keyframes progressBar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: var(--progress);
+  }
+}
+
+.progress-animate {
+  animation: progressBar 1s ease-out;
+}
+
+/* Success animation */
+@keyframes successPulse {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.success-animation {
+  animation: successPulse 0.6s ease-out;
+}
+
+/* Error shake animation */
+@keyframes errorShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-2px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(2px);
+  }
+}
+
+.error-shake {
+  animation: errorShake 0.5s ease-out;
+}
+
+/* Goal card animations */
+.goal-card-enter {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.goal-card-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.3s ease-out;
+}
+
+.goal-card-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.goal-card-exit-active {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.3s ease-in;
+}
+
+/* === UTILITY CLASSES === */
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(45deg, #6366f1 30%, #f59e0b 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover effect */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Card glow effect */
+.card-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-glow::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card-glow:hover::before {
+  opacity: 1;
+}
+
+/* Gradient border */
+.gradient-border {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  padding: 2px;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(45deg, #6366f1, #f59e0b);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Enhanced backdrop blur */
+.backdrop-blur {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.backdrop-blur-strong {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+.shadow-glow-secondary {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+/* === TRANSITION UTILITIES === */
+.transition-all {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-transform {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-colors {
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.transition-slow {
+  transition: all 0.5s ease;
+}
+
+.transition-fast {
+  transition: all 0.15s ease;
+}
+
+/* === SPACING UTILITIES === */
+.spacing-responsive {
+  padding: 16px;
+}
+
+@media (min-width: 600px) {
+  .spacing-responsive {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 900px) {
+  .spacing-responsive {
+    padding: 32px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .spacing-responsive {
+    padding: 48px;
+  }
+}
+
+/* === ACCESSIBILITY IMPROVEMENTS === */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #6366f1;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  z-index: 100;
+  transition: top 0.3s ease;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Focus ring for better accessibility */
+.focus-ring:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* === COMPONENT-SPECIFIC ENHANCEMENTS === */
+
+/* Floating action button */
+.fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.fab:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Notification badge */
+.notification-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: #ef4444;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  border: 2px solid white;
+}
+
+/* === TOAST CUSTOMIZATIONS === */
+.Toastify__toast {
+  border-radius: 12px !important;
+  font-family: 'Inter', sans-serif !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.Toastify__toast--success {
+  background-color: #10b981 !important;
+}
+
+.Toastify__toast--error {
+  background-color: #ef4444 !important;
+}
+
+.Toastify__toast--info {
+  background-color: #3b82f6 !important;
+}
+
+.Toastify__toast--warning {
+  background-color: #f59e0b !important;
+}
+
+.Toastify__progress-bar {
+  background: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* === MUI COMPONENT OVERRIDES === */
+.MuiButton-root {
+  text-transform: none !important;
+}
+
+.MuiPaper-root {
+  transition: box-shadow 0.3s ease !important;
+}
+
+.MuiCard-root {
+  transition: all 0.3s ease !important;
+}
+
+/* Custom dialog styles */
+.custom-dialog {
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+.custom-dialog .MuiDialogTitle-root {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%);
+}
+
+/* === PRINT STYLES === */
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .full-width,
+  .responsive-full,
+  .breakout,
+  .breakout-safe {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+  }
+  
+  /* Ensure good page breaks */
+  .goal-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+}
+
+/* === DARK MODE PREPARATION === */
+@media (prefers-color-scheme: dark) {
+  /* Commented out for now - implement when adding dark mode */
+  /*
+  body {
+    background-color: #0f172a;
+    color: #f1f5f9;
+  }
+  
+  .skeleton {
+    background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+  }
+  */
+}
+
+/* === PERFORMANCE OPTIMIZATIONS === */
+
+/* Will-change for elements that will be animated */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* GPU acceleration for smooth animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* === LAYOUT DEBUGGING (Remove in production) === */
+/*
+.debug-layout * {
+  outline: 1px solid red !important;
+}
+
+.debug-layout .responsive-full {
+  background: rgba(255, 0, 0, 0.1) !important;
+}
+
+.debug-layout .full-width {
+  background: rgba(0, 255, 0, 0.1) !important;
+}
+
+.debug-layout .breakout {
+  background: rgba(0, 0, 255, 0.1) !important;
+}
+*/
+
+================
+File: src/index.js
+================
+// frontend/src/index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+);
+
+
+
+
+================================================================
+End of Codebase
+================================================================
